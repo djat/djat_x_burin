@@ -1,17 +1,21 @@
 # Burin-as-Pathways bundle — packaging manifest
 
 bundle_id: burin-pathways
-version: "1.0.0"
+version: "1.1.0-transect-trust"
 title: "Burin as Pathways"
 description: >
   Formalizes the Burin spatiotemporal trust primitive as a Pathways substrate.
-  Presence-bearing steps emit burin_seal artifacts; orchestration lineage travels
-  via Aqua. Dual licensing: PolyForm NC kernel + Pathways license_terms on recipes.
+  Includes Presence templates, Conservation (Transect Trust) templates, and
+  Pathways.TrustKey.* technique. Dual licensing: PolyForm NC kernel +
+  Pathways license_terms on recipes.
 
 conformance_target_default: S
 conformance_target_full: F
 
 primary_artifact: APPLICATION_PLAYBOOK.md
+secondary_artifacts:
+  - TRANSECT_TRUST_PLAYBOOK.md
+  - techniques/TRUST_KEY_TECHNIQUE.v1.md
 pathways_index: pathways-index.yaml
 
 attribution:
@@ -25,8 +29,16 @@ attribution:
   this_bundle_author:
     did: did:placeholder:dj-thomson-pathways
     label: "DJ Thomson (Pathways author)"
+  trust_key_technique:
+    authors:
+      - did: did:placeholder:dj-thomson-pathways
+        label: "DJ Thomson"
+        role: co-author
+      - did: did:placeholder:cameron-sajedi-burin
+        label: "Cameron Sajedi"
+        role: co-author
   license_terms:
-    version: "1.0.0"
+    version: "1.1.0"
     fork: true
     attribution_required: true
     type: revenue-share
@@ -49,8 +61,10 @@ attribution:
 
 files:
   - APPLICATION_PLAYBOOK.md
+  - TRANSECT_TRUST_PLAYBOOK.md
   - PACKAGE.yaml
   - pathways-index.yaml
+  - techniques/TRUST_KEY_TECHNIQUE.v1.md
   - pathways/Presence.Field.CaptureSeal.v1.yaml
   - pathways/Presence.Survey.EffortProof.v1.yaml
   - pathways/Presence.Boundary.OverlapProof.v1.yaml
@@ -58,8 +72,21 @@ files:
   - pathways/Presence.Export.DegradeToPaper.v1.yaml
   - pathways/Presence.Bundle.DualAttestation.v1.yaml
   - pathways/Burin.Conformance.Test.v1.yaml
+  - pathways/Conservation.Program.Register.v1.yaml
+  - pathways/Conservation.Grant.Award.v1.yaml
+  - pathways/Conservation.Field.EffortSubmit.v1.yaml
+  - pathways/Conservation.Grant.CoordinatorReview.v1.yaml
+  - pathways/Conservation.Funder.QuarterVerify.v1.yaml
+  - pathways/Conservation.Program.QuarterlyClose.v1.yaml
+  - pathways/Conservation.Trust.CardIssue.v1.yaml
+  - pathways/Pathways.TrustKey.Issue@v1.yaml
+  - pathways/Pathways.TrustKey.Verify@v1.yaml
+  - pathways/Pathways.TrustKey.BuildDimensionalLinks@v1.yaml
+  - pathways/Pathways.TrustKey.IssueDimensionalLink@v1.yaml
+  - pathways/Pathways.TrustKey.VerifyDimensionalLink@v1.yaml
   - patterns/Pattern.BurinSubstrate.DualLicenseSplit.yaml
   - patterns/Pattern.PresencePathway.PresenceRequired.yaml
+  - patterns/Pattern.TrustKey.ProvenanceKey.yaml
   - registry/composite-domains.yaml
   - registry/abstract-capabilities.yaml
   - registry/context-lenses.yaml
@@ -69,3 +96,9 @@ normative_substrate_docs:
   burin_kernel: ../Burin/KERNEL.md
   pathways_architecture: ../PATHWAYS_ARCHITECTURE_v1.1.0.md
   pathways_reference: ../PATHWAYS_REFERENCE_v1.1.0.md
+
+reference_applications:
+  presence_passport: ../presence-passport/
+  transect_trust:
+    source: ../transect-trust/
+    live_url: https://transect-trust.fly.dev/

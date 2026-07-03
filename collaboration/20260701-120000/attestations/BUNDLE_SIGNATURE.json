@@ -1,12 +1,12 @@
 {
   "manifest_version": "1.0",
   "manifest_kind": "bundle_signature",
-  "bundle_id": "djat-mikeoss-20260528",
-  "issued_at": "2026-07-03T21:46:08Z",
+  "bundle_id": "djat-burin-20260701",
+  "issued_at": "2026-07-03T21:51:10Z",
   "issuer_label": "Originator (Pathways framework author)",
   "signing_method": "Ed25519 OpenSSL rawin over bundle_root_hash hex",
-  "bundle_root_hash": "a04fea0cf956729d63ca344f04025f4aad5e20fd1099c9eb02ac175b2e59fc92",
-  "signature_base64": "gJCVKY1RrY8oTQj+05BeC+BrlsXterxMmqiLs8FAJfvcCPK5vee386XedEgoilwdQfmQ5BMUzyx1Q9vggrrzAQ==",
+  "bundle_root_hash": "90242d6166ca7061c41b22a66e17f9a85d7ba920175c156d11519fd9a405910f",
+  "signature_base64": "+q2KH2E1QEXcm++BPrkn6Ncs4PwZctPLvdcMqWwSRSt0BkCfL8Ppr9hDE7LD28btvPYIlUBuJVWau/1e98ctAw==",
   "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAczDncUcPvaKQJG+4J+MiBflS1umU9PfDp0ZvfEjU81g=\n-----END PUBLIC KEY-----\n",
   "verify_command": "python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260701-120000"
 }

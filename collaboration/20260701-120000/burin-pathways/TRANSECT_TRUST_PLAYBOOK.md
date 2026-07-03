@@ -84,9 +84,14 @@ See: `techniques/TRUST_KEY_TECHNIQUE.v1.md`
 
 ## §4 — Reference application
 
-- UI: [`transect-trust/`](../transect-trust/)
-- API: `backend/app/routers/transect_trust.py`
-- Seed: `backend/app/services/conservation_seed.py` (demo program `nea-estuary-transect-2026`)
+| | |
+|---|---|
+| **Live demo** | [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/) |
+| **UI source (bundle)** | [`../../assets/transect-trust/`](../../assets/transect-trust/) |
+| **UI source (repo root)** | `transect-trust/` |
+| **Repository** | [github.com/djat/djat_x_burin](https://github.com/djat/djat_x_burin) |
+| **API** | `backend/app/routers/transect_trust.py` (repo root) |
+| **Seed** | `backend/app/services/conservation_seed.py` (demo program `nea-estuary-transect-2026`) |
 
 ---
 

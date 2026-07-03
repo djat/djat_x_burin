@@ -1288,13 +1288,24 @@ Noncommercial research, education, and evaluation may run both kernel and templa
 |---|---|
 | `burin-pathways` template package + playbook | ✅ Seeded in `djat_x_burin` |
 | Reference FastAPI engine + Burin agents | ✅ `backend/` in `djat_x_burin` |
-| Presence Passport UI (field workflow demo) | ✅ `presence-passport/` |
+| Presence Passport UI (field workflow demo) | ✅ [`presence-passport/`](../presence-passport/) |
+| Transect Trust UI (multi-party conservation + Trust Key) | ✅ [`transect-trust/`](../transect-trust/) — live: [transect-trust.fly.dev](https://transect-trust.fly.dev/) |
+| Conservation + Trust Key pathway templates | ✅ [`burin-pathways/`](../burin-pathways/) — 7 Conservation + 5 TrustKey templates |
 | Dual-substrate collaboration bundle verify (L6) | ⚠ Partial — H-BU1 / H-BU5 in collaboration bundle |
 | `substrate_license_ref` in canonical `PathwayLicenseTerms` model | ❌ Proposed (N5) |
 | Spatiotemporal gate on R6 | ❌ Proposed (N7) |
 | C2PA third-party assertion embedding | ❌ Burin roadmap — not Pathways engine |
 
 **Honest boundary:** Burin proves **consistency**, not that the world matches the claim ([`Burin/CLAIMS.md`](Burin/CLAIMS.md)). Omission cannot be defeated ([`Burin/SCOPE.md`](Burin/SCOPE.md) §0). Pathways MUST surface these limits in UI copy for presence-bearing runs.
+
+#### 9.9.5 Reference applications
+
+| Application | Audience | Source | Live |
+|---|---|---|---|
+| **[Transect Trust](transect-trust/)** | Multi-party conservation quarter + Trust Key | [`transect-trust/`](transect-trust/) · [`burin-pathways/TRANSECT_TRUST_PLAYBOOK.md`](burin-pathways/TRANSECT_TRUST_PLAYBOOK.md) | [transect-trust.fly.dev](https://transect-trust.fly.dev/) |
+| **[Presence Passport](presence-passport/)** | Single field worker — one proof, one recipient | [`presence-passport/`](presence-passport/) · [`burin-pathways/APPLICATION_PLAYBOOK.md`](burin-pathways/APPLICATION_PLAYBOOK.md) | local dev |
+
+Both apps share the [`backend/`](backend/) Pathways engine and Burin agents. Transect Trust adds Conservation + Trust Key templates and the `/api/transect-trust/` router.
 
 ---
 
@@ -2808,10 +2819,11 @@ The RIS is the **contract**; this document is **one implementation's description
 | **Date** | 2026-07-01 |
 | **Workspace** | `djat_x_burin` |
 | **Substrate source** | [`Burin/`](Burin/) — Cameron Sajedi, PolyForm Noncommercial 1.0.0 |
-| **Pathways formalization** | [`burin-pathways/`](burin-pathways/) — APPLICATION_PLAYBOOK, 7 templates, patterns |
-| **Reference implementation** | [`backend/`](backend/) + [`presence-passport/`](presence-passport/) |
+| **Pathways formalization** | [`burin-pathways/`](burin-pathways/) — APPLICATION_PLAYBOOK, Presence + Conservation templates, Trust Key technique |
+| **Reference implementation** | [`backend/`](backend/) + [`presence-passport/`](presence-passport/) + [`transect-trust/`](transect-trust/) |
+| **Live demo** | [Transect Trust](https://transect-trust.fly.dev/) on Fly.io |
 | **Collaboration bundle** | `collaboration/20260701-120000/` — channel `djat-burin-20260701` |
-| **Flagship hypotheses** | H-BU1 (dual-attestation sandwich), H-BU5 (field run offline verify) |
+| **Flagship hypotheses** | H-BU1 (dual-attestation sandwich), H-BU5 (field run offline verify), H-BU11 (Trust Key quarter close) |
 | **Proposed spec patches** | N5 (`substrate_license_ref`), N6 (`BurinSealArtifact`), N7 (`spatiotemporal_gate`), N8 (glossary), L6 (dual-substrate verify bundle) |
 
 This integration is an **open invitation** to the Burin project — reciprocation optional. The architecture document records shipped vs planned status honestly; normative acceptance of N5–N8 awaits RIS revision.

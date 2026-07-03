@@ -15,7 +15,7 @@ bundle:
   contains_code: true
   collaboration_kind: open-invitation
   reciprocation_required: false
-  status: "ASSEMBLED — open invitation"
+  status: "SEALED — open invitation"
 
 read_order:
   - companion-bundle-index.md
@@ -74,7 +74,7 @@ reference_applications:
 
 investigation:
   investigation_id: open-burin-pathways-20260701
-  status: ASSEMBLED
+  status: SEALED
   hypotheses_registry: collaboration-pathways/test/HYPOTHESES.md
 
 files:

@@ -2,7 +2,7 @@
 
 **Channel:** `djat-burin-20260701`  
 **Prepared for:** Cameron Sajedi and the Burin project  
-**Status:** ASSEMBLED — open invitation (updated 2026-07-03 with Transect Trust)
+**Status:** SEALED — open invitation (updated 2026-07-03 with Transect Trust documentation + bundle assets)
 
 ## Read order
 
@@ -18,7 +18,7 @@
 | 8 | [sidecars/trust-key-provenance-root-thesis.md](sidecars/trust-key-provenance-root-thesis.md) | Trust Key + dimensional links |
 | 9 | [sidecars/transect-trust-reference-application.md](sidecars/transect-trust-reference-application.md) | Transect Trust context |
 | 10 | [assets/presence-passport/README.md](assets/presence-passport/README.md) | Reference app (Presence) |
-| 11 | [assets/transect-trust/README.md](assets/transect-trust/README.md) | Reference app (Conservation) |
+| 11 | [assets/transect-trust/README.md](assets/transect-trust/README.md) | Reference app (Conservation) — UI source + live link |
 
 ## Verify
 

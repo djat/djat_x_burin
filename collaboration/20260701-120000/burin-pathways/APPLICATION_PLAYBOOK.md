@@ -107,4 +107,14 @@ See [`test/HYPOTHESES.md`](test/HYPOTHESES.md) in the collaboration bundle for p
 
 ## §9 — Transect Trust (Conservation domain extension)
 
-Multi-party conservation grant reporting, Trust Key provenance roots, and dimensional deep links are documented in [`TRANSECT_TRUST_PLAYBOOK.md`](TRANSECT_TRUST_PLAYBOOK.md). Live reference: https://transect-trust.fly.dev/
+**[Transect Trust](../../assets/transect-trust/)** is the second reference application: multi-party conservation grant reporting, cross-habitat collaboration, private in-network water requests, and offline funder verification with **Trust Key** provenance roots.
+
+| | |
+|---|---|
+| **Live demo** | [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/) |
+| **Playbook** | [`TRANSECT_TRUST_PLAYBOOK.md`](TRANSECT_TRUST_PLAYBOOK.md) |
+| **Trust Key technique** | [`techniques/TRUST_KEY_TECHNIQUE.v1.md`](techniques/TRUST_KEY_TECHNIQUE.v1.md) |
+| **UI source (bundle)** | [`../../assets/transect-trust/`](../../assets/transect-trust/) |
+| **UI source (repo root)** | `transect-trust/` |
+
+Conservation templates: `Conservation.*.v1.yaml`. Trust Key templates: `Pathways.TrustKey.*.v1.yaml`. Quarter close launches sibling PathwayRuns (Issue → VerifyDimensionalLink → IssueDimensionalLink → QuarterlyClose). Confirmed: **H-BU11** in the collaboration bundle.

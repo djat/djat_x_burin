@@ -44,3 +44,7 @@ If the server isn't running, the app shows a clear error with setup instructions
 - Pathway templates: `Presence.Survey.EffortProof@v1`, `Presence.Field.CaptureSeal@v1`
 - Burin fingerprint depth: 7 (required for typical field polygons)
 - Burin proves **consistency**, not ground truth
+
+## Related reference app
+
+For **multi-party conservation grant reporting** with Trust Key provenance, see **[Transect Trust](../transect-trust/README.md)** — live at [transect-trust.fly.dev](https://transect-trust.fly.dev/).

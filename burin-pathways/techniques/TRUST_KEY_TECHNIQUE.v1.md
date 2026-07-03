@@ -97,6 +97,8 @@ Quarter close orchestrates sibling PathwayRuns: Issue → VerifyDimensionalLink 
 
 `Conservation.Program.QuarterlyClose@v1` embeds the Issue pipeline after run-graph validation and royalty attribution, producing a `pathways_trust_key` artifact on the quarterly close record.
 
+**Reference application:** [Transect Trust](../../transect-trust/) — live at [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/). Playbook: [`TRANSECT_TRUST_PLAYBOOK.md`](../TRANSECT_TRUST_PLAYBOOK.md).
+
 ## Agent
 
 `pathways_trustkey` — implemented in `backend/app/services/trustkey_agents.py`

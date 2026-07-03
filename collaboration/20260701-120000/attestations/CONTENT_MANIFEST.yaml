@@ -1,8 +1,8 @@
 # Collaboration bundle content manifest — SHA-256 bound
 manifest_version: "1.0"
 manifest_kind: content_manifest
-bundle_id: djat-mikeoss-20260528
-issued_at: 2026-07-03T21:46:08Z
+bundle_id: djat-burin-20260701
+issued_at: 2026-07-03T21:51:10Z
 issuer_label: "Originator (Pathways framework author)"
 
 state:
@@ -12,14 +12,14 @@ state:
 bundle_root_hash:
   algorithm: sha256
   method: "sha256(sort-join(rel_path \t content_sha256 \n))"
-  hash: a04fea0cf956729d63ca344f04025f4aad5e20fd1099c9eb02ac175b2e59fc92
+  hash: 90242d6166ca7061c41b22a66e17f9a85d7ba920175c156d11519fd9a405910f
 
-file_count: 78
+file_count: 105
 
 files:
   - rel_path: COLLABORATION_READINESS.md
-    content_sha256: c919fdb48e3c88e2573d1d28a47c6585d5eefa0e1f10af4da6268e8e655b1c2b
-    file_size: 2034
+    content_sha256: 0b9a8a4c3417715439101258369f8ae9ec947796b0cd2903d23c623d6571f2bb
+    file_size: 2546
   - rel_path: assets/presence-passport/README.md
     content_sha256: b1a02ed1e7f771e23b2cd5fa478fec223d675f3838d0813dca1e762baeb415bc
     file_size: 1057
@@ -57,17 +57,98 @@ files:
     content_sha256: 0cc897befa3b08cd17756b3b2adc993005286904cf10f8519a098f0cb0eee16c
     file_size: 228
   - rel_path: assets/transect-trust/README.md
-    content_sha256: 27b618418b10a3b727dc36beec7bdbb170a8682a5c0a9cb55dc436c46666d11f
-    file_size: 1019
+    content_sha256: f65e7013cc3f265259cfdb1129352c9713c6344c4d4c621aca3e75f766f204e3
+    file_size: 1641
+  - rel_path: assets/transect-trust/index.html
+    content_sha256: 52082bd23c2d1d6e3f7ca7bcabf1ba9a0dfbbd6c75aaf42a11205b27b0803ada
+    file_size: 622
+  - rel_path: assets/transect-trust/package-lock.json
+    content_sha256: 5fe42018ba65344be8ab9d795ed31401d7f232eb98b4b945ba8433ea99ebb59f
+    file_size: 62743
+  - rel_path: assets/transect-trust/package.json
+    content_sha256: b23886e87a042ae80de635c234fd7c4400f0a3e823c3ee2a116d70283084a359
+    file_size: 748
+  - rel_path: assets/transect-trust/public/_redirects
+    content_sha256: 66584af744075248a042165adbdbd6a0551fa708a85650ea1e3e777eee17080c
+    file_size: 24
+  - rel_path: assets/transect-trust/src/App.tsx
+    content_sha256: 2ad6ea8dafa1635feeb9575abba5f8c13c92f32ffa83b9af4b87a928e5828845
+    file_size: 22596
+  - rel_path: assets/transect-trust/src/api.ts
+    content_sha256: 7d3e827107d664116483b2995c20e92f90f57229a09558e7dcaf81290cb53a85
+    file_size: 8908
+  - rel_path: assets/transect-trust/src/components/DevToggle.tsx
+    content_sha256: 79244d146279e9bcad549266124d04c990b8973098e9f3d6318f9b27fba95686
+    file_size: 932
+  - rel_path: assets/transect-trust/src/components/OverviewPage.tsx
+    content_sha256: dcdfaf339157fca7345d0ab6891ca1a1c5e67278b7e298bd1150759ec4210bba
+    file_size: 7352
+  - rel_path: assets/transect-trust/src/components/OverviewSectionNav.tsx
+    content_sha256: 2972b706e003d7fdd6cd7d313594ab7092789ac53d233c6107bea45b0cb77a1f
+    file_size: 1769
+  - rel_path: assets/transect-trust/src/components/ProvenancePanel.tsx
+    content_sha256: aea405f3dd1b4397f198bd0a6dfa1fe939861e667d3f7568eeff0f96e1c9a375
+    file_size: 4746
+  - rel_path: assets/transect-trust/src/components/StackPreview.tsx
+    content_sha256: 03cba61601e6d925da2961d42ef5c68e8de0580add6c9c90ad9e9d142d0798b2
+    file_size: 4627
+  - rel_path: assets/transect-trust/src/components/ThemeToggle.tsx
+    content_sha256: 711b44b61a1e5ccfccea5c7f7f3602bc1e37da96ba2eec7daf22738d812f39e9
+    file_size: 828
+  - rel_path: assets/transect-trust/src/components/WaterReportingPanel.tsx
+    content_sha256: 29cc4386c53209521edc27e5146ba93b4a94a084e5d2fd5bf9a5fe4f22a1f5e1
+    file_size: 5969
+  - rel_path: assets/transect-trust/src/content/overview.ts
+    content_sha256: 147cb9c90ddf67ab1d613d8d4df8ffe597652b77d3f998633d66c1351b3cf6b9
+    file_size: 29962
+  - rel_path: assets/transect-trust/src/content/overviewSections.ts
+    content_sha256: 6075495a577a5958bfa727882f448ce62e98a7e2ecd0f5ebefe08bc55bed3168
+    file_size: 743
+  - rel_path: assets/transect-trust/src/content/privacyFloor.ts
+    content_sha256: 303d1036fe7707532ad77ae117f3016ca97de02bfb7e6bcf29884c89657984fc
+    file_size: 596
+  - rel_path: assets/transect-trust/src/content/waterNetwork.ts
+    content_sha256: 17901e95537d19073665d490c72c4f2605115094ba035b61b2ee6af138afa63c
+    file_size: 5387
+  - rel_path: assets/transect-trust/src/guide.ts
+    content_sha256: b824a2eee19a06f3c0fe01e94c65a4eb64ebf788460182c26a0b6ffcea55b691
+    file_size: 10921
+  - rel_path: assets/transect-trust/src/index.css
+    content_sha256: 36c43c5a82181fe06c63cbf569db5e3deed00390cb40dcd7bf68f4d78bb6c325
+    file_size: 37409
+  - rel_path: assets/transect-trust/src/main.tsx
+    content_sha256: 85f819c5f77609f007ef6cc6350adb7ebaf96375f1724021e588db6400c02d3d
+    file_size: 339
+  - rel_path: assets/transect-trust/src/scroll.ts
+    content_sha256: c79727b76ca0a89787556275be6e1b2494193d29f0d961a87203d299f43c2472
+    file_size: 480
+  - rel_path: assets/transect-trust/src/theme.css
+    content_sha256: 847bd8f04928e49d79071ad09ab5a764d32159beb1acf91b058224cb4a672afd
+    file_size: 4108
+  - rel_path: assets/transect-trust/src/theme.ts
+    content_sha256: b40ffa5768b1d9c475d95b6a933f9b3e3159607ad13dcebe909526744d042146
+    file_size: 396
+  - rel_path: assets/transect-trust/src/vite-env.d.ts
+    content_sha256: 65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5
+    file_size: 38
+  - rel_path: assets/transect-trust/tsconfig.json
+    content_sha256: 30b13183f89d3a1f77d5cbefffd97dcce4353449a49781dbdbe650aff07abe4f
+    file_size: 551
+  - rel_path: assets/transect-trust/vite.config.ts
+    content_sha256: d68943e5a8c4a073e56515f376f9b5969d19a5e479ad0115974d940cf44f842c
+    file_size: 240
+  - rel_path: assets/transect-trust/wrangler.toml
+    content_sha256: f6fed17a1ba9ba54787b23dedb67615cd2936003c70919d86f87600b12fe8fd0
+    file_size: 468
   - rel_path: burin-pathways/APPLICATION_PLAYBOOK.md
-    content_sha256: 03eb5412781255e242962fb01e6dabceaad8a17fa1e56db8270eca49fb4a6b20
-    file_size: 5992
+    content_sha256: 43a164a6631ca949e2003446b4bfb03dd53548d9c07823e59ae50198af5d553c
+    file_size: 6741
   - rel_path: burin-pathways/PACKAGE.yaml
     content_sha256: d52ee938d383810a40cd3cdf157f5b985905a6918f36c5d0179345028bfa695c
     file_size: 3788
   - rel_path: burin-pathways/TRANSECT_TRUST_PLAYBOOK.md
-    content_sha256: fb4e763652c470c0fbe583f7b10e26ce855acdb31c11b674cbdda2ce1377637f
-    file_size: 4774
+    content_sha256: 35309c3642679b377eac1aa32ddb4813030f43b297c761ca2dca5310de38943f
+    file_size: 5089
   - rel_path: burin-pathways/pathways/Burin.Conformance.Test.v1.yaml
     content_sha256: 52f29cbd52c64bd8328aa3e7828622ea2e1be8987a93b3c4056d50e0b13ec3d1
     file_size: 974
@@ -147,17 +228,17 @@ files:
     content_sha256: be28e50c505a40be06e1f9eff9aae0247a763041731f0a0cd371253d7c57ec09
     file_size: 401
   - rel_path: burin-pathways/techniques/TRUST_KEY_TECHNIQUE.v1.md
-    content_sha256: c724ef13fe2c2eeb4aa6f4ee81d80c976f14e0612727511dc6acdef770760973
-    file_size: 5024
+    content_sha256: 6760ecb6482a6ed633febdb4250afef0cb585b7077d9628ddca7e84e18568ac1
+    file_size: 5252
   - rel_path: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
-    content_sha256: 49f9ec619fe2ba49d4c68aa32ac4eda74f5f12103e18f2b47056edb749c3aa3e
-    file_size: 205400
+    content_sha256: a39c9bd259e3fed276bb3ec87b5afbda353c0503057af32d3e19ecd49ffbc9dc
+    file_size: 206712
   - rel_path: canon/PATHWAYS_REFERENCE_v1.1.0.md
     content_sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
     file_size: 128628
   - rel_path: collaboration-manifest.yaml
-    content_sha256: 59f52f0517bb2dc5c45e93fffbb354bb5ad915f7ced49a579038aa283e9b6c39
-    file_size: 3234
+    content_sha256: 28c8cf3ed572b7d3f4a84c274eb296f03f4031b386e585d0bf67173a1338a8a6
+    file_size: 3228
   - rel_path: collaboration-pathways/APPLICATION_PLAYBOOK.md
     content_sha256: 5d43ade4cb8739fc3f9611b514132920b374df5caf0fd3eea2d87907f17ad020
     file_size: 397
@@ -168,8 +249,8 @@ files:
     content_sha256: 369828c9605eed153e295cebf835365c65f34e60a0240554bef35479b9345606
     file_size: 2530
   - rel_path: companion-bundle-index.md
-    content_sha256: 598eef3c7ecbcc1e1b1e283ade3c91894ec21b9c0f2fc9665ed1b5adda5c7115
-    file_size: 2407
+    content_sha256: 9a1f4ec154cabcc60982f2c393cefe15824be435a55d91bb505392f12243aa33
+    file_size: 2460
   - rel_path: executive-summaries/BURIN_PATHWAYS_THIRD_WAY_REPORT.md
     content_sha256: b4d9af9574c926d6713596863f0ebaf5ab9404bee82b41db5606bbec6a775d88
     file_size: 2882

@@ -1,0 +1,152 @@
+/* Transect Trust themes: lively, human palette. Light is default. */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-body: #faf6f2;
+  --bg-sidebar: #fff8f5;
+  --bg-surface: #ffffff;
+  --bg-surface-2: #f7f1eb;
+  --bg-inset: #f0e8e0;
+  --bg-hover: #f5ebe3;
+  --bg-active: #fce8ef;
+  --bg-active-path: #e8f0ff;
+  --bg-success: #e8f9f0;
+  --bg-warning: #fef6e8;
+  --bg-danger: #fef0f0;
+  --bg-dev: #f3f0ff;
+
+  --border: #e8ddd4;
+  --border-strong: #d9cdc2;
+  --border-burin: #f5c4d4;
+  --border-pathways: #c4d9f8;
+  --border-gold: #f0d49a;
+
+  --text: #3d3848;
+  --text-heading: #1f1c28;
+  --text-secondary: #5f5969;
+  --text-muted: #8f8798;
+  --text-soft: #a39aab;
+  --text-on-accent: #ffffff;
+
+  --accent: #e2567a;
+  --accent-strong: #c93d62;
+  --accent-soft: #fce8ef;
+  --accent-text: #b83256;
+
+  --burin: #e2567a;
+  --burin-soft: #fce8ef;
+  --burin-text: #c93d62;
+
+  --pathways: #4a7fe8;
+  --pathways-soft: #e8f0ff;
+  --pathways-text: #2d5fc9;
+
+  --sky: #5b9cf4;
+  --gold: #e8940a;
+  --gold-soft: #fef6e8;
+  --gold-text: #b87208;
+
+  --success: #1fa872;
+  --success-text: #15805a;
+  --warning-text: #b45309;
+  --danger-text: #dc2626;
+
+  --dev: #7c6fe8;
+  --dev-text: #5b4fd4;
+
+  --brand-gradient: linear-gradient(135deg, #e2567a, #ff9169);
+  --btn-gradient: linear-gradient(180deg, #e2567a, #c93d62);
+  --gradient-burin: linear-gradient(160deg, rgba(226, 86, 122, 0.14), rgba(255, 145, 105, 0.1));
+  --gradient-pathways: linear-gradient(160deg, rgba(74, 127, 232, 0.14), rgba(124, 111, 232, 0.1));
+  --gradient-together: linear-gradient(135deg, rgba(226, 86, 122, 0.12), rgba(74, 127, 232, 0.1));
+  --gradient-centerpiece: linear-gradient(160deg, rgba(226, 86, 122, 0.16), rgba(74, 127, 232, 0.1));
+  --gradient-highlight: linear-gradient(135deg, rgba(226, 86, 122, 0.08), rgba(74, 127, 232, 0.06));
+
+  --shadow-sm: 0 1px 4px rgba(43, 41, 51, 0.06);
+  --shadow-md: 0 8px 28px rgba(43, 41, 51, 0.1);
+  --shadow-panel: -8px 0 28px rgba(43, 41, 51, 0.12);
+
+  --map-unit: #3cb87a;
+  --map-zone: #5b9cf4;
+  --code-bg: #f5f0eb;
+
+  --switch-off: #d9cdc2;
+  --switch-on: var(--accent);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-body: #14121c;
+  --bg-sidebar: #1a1826;
+  --bg-surface: #211f2c;
+  --bg-surface-2: #1c1a28;
+  --bg-inset: #0f0e14;
+  --bg-hover: #2a2838;
+  --bg-active: #3a2230;
+  --bg-active-path: #222a42;
+  --bg-success: #152820;
+  --bg-warning: #2a2218;
+  --bg-danger: #2a1818;
+  --bg-dev: #221f38;
+
+  --border: #2e2c3a;
+  --border-strong: #3d3a4d;
+  --border-burin: #6a3550;
+  --border-pathways: #35508a;
+  --border-gold: #6a5020;
+
+  --text: #e8e4ef;
+  --text-heading: #f5f2fa;
+  --text-secondary: #b8b2c4;
+  --text-muted: #8a8498;
+  --text-soft: #6f6a7a;
+  --text-on-accent: #ffffff;
+
+  --accent: #ff7a96;
+  --accent-strong: #ff5c80;
+  --accent-soft: #3a2230;
+  --accent-text: #ffb3c4;
+
+  --burin: #ff7a96;
+  --burin-soft: #3a2230;
+  --burin-text: #ffb3c4;
+
+  --pathways: #6b9dff;
+  --pathways-soft: #222a42;
+  --pathways-text: #a8c8ff;
+
+  --sky: #7eb8ff;
+  --gold: #f5b84a;
+  --gold-soft: #2a2218;
+  --gold-text: #f5d078;
+
+  --success: #4ade80;
+  --success-text: #86efac;
+  --warning-text: #fbbf24;
+  --danger-text: #fca5a5;
+
+  --dev: #a89cff;
+  --dev-text: #c4baff;
+
+  --brand-gradient: linear-gradient(135deg, #ff7a96, #ff9f7a);
+  --btn-gradient: linear-gradient(180deg, #ff7a96, #e2567a);
+  --gradient-burin: linear-gradient(160deg, rgba(255, 122, 150, 0.18), rgba(255, 159, 122, 0.1));
+  --gradient-pathways: linear-gradient(160deg, rgba(107, 157, 255, 0.16), rgba(168, 156, 255, 0.1));
+  --gradient-together: linear-gradient(135deg, rgba(255, 122, 150, 0.14), rgba(107, 157, 255, 0.12));
+  --gradient-centerpiece: linear-gradient(160deg, rgba(255, 122, 150, 0.2), rgba(107, 157, 255, 0.12));
+  --gradient-highlight: linear-gradient(135deg, rgba(255, 122, 150, 0.12), rgba(107, 157, 255, 0.08));
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.35);
+  --shadow-panel: -8px 0 28px rgba(0, 0, 0, 0.45);
+
+  --map-unit: #5cd49a;
+  --map-zone: #7eb8ff;
+  --code-bg: #0f0e14;
+
+  --switch-off: #3d3a4d;
+  --switch-on: var(--accent);
+}

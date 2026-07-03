@@ -104,3 +104,17 @@ Level **S** minimum: hash-bound bundles + Burin offline verify.
 Level **F** target: Aqua-attested runs + dual-substrate verify bundle (proposed L6).
 
 See [`test/HYPOTHESES.md`](test/HYPOTHESES.md) in the collaboration bundle for pre-registered proof experiments.
+
+## §9 — Transect Trust (Conservation domain extension)
+
+**[Transect Trust](../transect-trust/)** is the second reference application: multi-party conservation grant reporting, cross-habitat collaboration, private in-network water requests, and offline funder verification with **Trust Key** provenance roots.
+
+| | |
+|---|---|
+| **Live demo** | [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/) |
+| **Playbook** | [`TRANSECT_TRUST_PLAYBOOK.md`](TRANSECT_TRUST_PLAYBOOK.md) |
+| **Trust Key technique** | [`techniques/TRUST_KEY_TECHNIQUE.v1.md`](techniques/TRUST_KEY_TECHNIQUE.v1.md) |
+| **UI source** | [`../transect-trust/`](../transect-trust/) |
+| **API** | `backend/app/routers/transect_trust.py` |
+
+Conservation templates: `Conservation.*.v1.yaml`. Trust Key templates: `Pathways.TrustKey.*.v1.yaml`. Quarter close launches sibling PathwayRuns (Issue → VerifyDimensionalLink → IssueDimensionalLink → QuarterlyClose). Confirmed: **H-BU11** in the collaboration bundle.
