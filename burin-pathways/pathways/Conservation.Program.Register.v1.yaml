@@ -1,0 +1,83 @@
+domain: Conservation
+subdomain: Program
+action: Register
+version: 1
+display_name: "Register conservation grant program"
+description: >
+  Funder registers a grant program with acceptance policy, witness trust card,
+  and public reporting-unit catalog (HUC/PAD-US aligned). Establishes the
+  relying-party rules under which bounded-disclosure effort proofs count.
+
+input_contract:
+  program_id: { type: string }
+  program_name: { type: string }
+  funder_did: { type: string }
+  funder_name: { type: string }
+  acceptance_policy_ref: { type: string }
+  witness_pubkeys: { type: array }
+  reporting_period: { type: string, default: quarterly }
+  disclosure_floor_depth: { type: integer, default: 7 }
+  k_min_effort: { type: integer, default: 3 }
+
+output_contract:
+  type: conservation_program_registration
+  format: json
+
+steps:
+  - agent_id: conservation_program
+    order: 1
+    skill: encode_acceptance_policy
+    config:
+      program_id: "{{program_id}}"
+      acceptance_policy_ref: "{{acceptance_policy_ref}}"
+      disclosure_floor_depth: "{{disclosure_floor_depth}}"
+      k_min_effort: "{{k_min_effort}}"
+
+  - agent_id: conservation_program
+    order: 2
+    skill: mint_trust_card
+    config:
+      program_id: "{{program_id}}"
+      funder_did: "{{funder_did}}"
+      funder_name: "{{funder_name}}"
+      witness_pubkeys: "{{witness_pubkeys}}"
+      dggs: "rHEALPix WGS84 N_side=3 aperture-9"
+
+  - agent_id: conservation_program
+    order: 3
+    skill: bind_reporting_unit_catalog
+    config:
+      program_id: "{{program_id}}"
+      catalog_ref: "{{program_id}}-units-v1"
+
+  - agent_id: conservation_program
+    order: 4
+    skill: package_program_registration
+    config:
+      program_id: "{{program_id}}"
+      channel: "transect-trust"
+
+gate_profile:
+  default_autonomy: A2
+  non_delegable_approval:
+    - step: 2
+      role: funder_program_officer
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 35, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 45, role: pathways-formalization }
+    - { did: did:placeholder:nea-estuary-collab, pct: 20, role: program-operator }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    commercial_kernel_contact: cameronsajedi@gmail.com
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - grant-program
+  - trust-card
+  - transect-trust

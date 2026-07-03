@@ -1,0 +1,46 @@
+domain: Conservation
+subdomain: Trust
+action: CardIssue
+version: 1
+display_name: "Issue printable trust card for verifiers"
+description: >
+  Derives a degrade-to-paper trust card from a completed program registration run.
+  Parallel to Pathways R1 practice profile cold-start for witness key acceptance.
+
+input_contract:
+  program_run_id: { type: string }
+  program_id: { type: string }
+  issued_to_role: { type: string, default: funder_program_officer }
+
+output_contract:
+  type: trust_card_issue
+  format: json
+
+steps:
+  - agent_id: conservation_program
+    order: 1
+    skill: extract_trust_card_from_program_run
+    config:
+      program_run_id: "{{program_run_id}}"
+      program_id: "{{program_id}}"
+
+  - agent_id: burin_export
+    order: 2
+    skill: degrade_to_paper
+    config:
+      seal: "{{steps.1.artifact.anchor_seal}}"
+
+  - agent_id: conservation_program
+    order: 3
+    skill: finalize_trust_card
+    config:
+      program_id: "{{program_id}}"
+      trust_card: "{{steps.1.artifact.trust_card}}"
+      spoken_seal_24w: "{{steps.2.artifact.spoken_seal_24w}}"
+      issued_to_role: "{{issued_to_role}}"
+
+tags:
+  - conservation
+  - trust-card
+  - degrade-to-paper
+  - transect-trust

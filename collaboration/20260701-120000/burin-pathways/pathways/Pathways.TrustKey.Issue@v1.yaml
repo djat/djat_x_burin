@@ -1,0 +1,133 @@
+domain: Pathways
+subdomain: TrustKey
+action: Issue
+version: 1
+display_name: "Issue Trust Key (provenance root)"
+description: >
+  Generic Pathways technique: mint a Trust Key — a cryptographic provenance root that
+  opens back, by deep link, into the full collaborative context from which it originated
+  (PathwayRuns, Burin seals, party attestations, step artifacts). Entirely private,
+  multi-signature capable, offline verifiable without the platform that produced it.
+
+technique:
+  concept: Trust Key
+  authors:
+    - order: 1
+      did: did:placeholder:dj-thomson-pathways
+      name: DJ Thomson
+      role: co-author
+    - order: 2
+      did: did:placeholder:cameron-sajedi-burin
+      name: Cameron Sajedi
+      role: co-author
+  unique_aspects:
+    - provenance_root_key
+    - deep_link_to_originating_collaborative_context
+    - dual_plane_orchestration_and_presence
+    - no_merged_super_hash
+    - entirely_private_distribution
+    - multisig_capable_envelope
+    - offline_verifiable_without_issuer_platform
+    - hash_linked_cross_reference_only
+    - portable_relying_party_verification
+    - powerful_party_does_least
+    - dimensional_context_parameters
+    - one_time_dimensional_links
+
+input_contract:
+  origin_channel: { type: string }
+  run_graph: { type: object }
+  context_dimensions: { type: object, default: {} }
+  dimension_scope: { type: object, default: {} }
+  privacy_mode: { type: string, default: private }
+  one_time_key: { type: boolean, default: false }
+  use_limit: { type: integer, default: null }
+  multisig_policy: { type: string, default: optional }
+  required_signers: { type: array, default: [] }
+
+output_contract:
+  type: pathways_trust_key
+  format: json
+
+steps:
+  - agent_id: pathways_trustkey
+    order: 1
+    skill: collect_provenance_context
+    config:
+      run_graph: "{{run_graph}}"
+      origin_channel: "{{origin_channel}}"
+      context_dimensions: "{{context_dimensions}}"
+      dimension_scope: "{{dimension_scope}}"
+
+  - agent_id: application
+    order: 2
+    skill: assemble_dual_attestation_bundle
+    config:
+      run_artifacts: "{{steps.1.artifact.aggregated_artifacts}}"
+      channel: "{{origin_channel}}"
+
+  - agent_id: pathways_trustkey
+    order: 3
+    skill: mint_trust_key
+    config:
+      dual_bundle: "{{steps.2.artifact}}"
+      provenance_context: "{{steps.1.artifact}}"
+      privacy_mode: "{{privacy_mode}}"
+      context_dimensions: "{{context_dimensions}}"
+      dimension_scope: "{{dimension_scope}}"
+      one_time_key: "{{one_time_key}}"
+      use_limit: "{{use_limit}}"
+
+  - agent_id: pathways_trustkey
+    order: 4
+    skill: build_dimensional_links
+    config:
+      trust_key: "{{steps.3.artifact}}"
+      provenance_context: "{{steps.1.artifact}}"
+
+  - agent_id: pathways_trustkey
+    order: 5
+    skill: build_deeplink_manifest
+    config:
+      trust_key: "{{steps.4.artifact.trust_key}}"
+      provenance_context: "{{steps.1.artifact}}"
+
+  - agent_id: pathways_trustkey
+    order: 6
+    skill: apply_multisig_envelope
+    config:
+      trust_key: "{{steps.4.artifact.trust_key}}"
+      multisig_policy: "{{multisig_policy}}"
+      required_signers: "{{required_signers}}"
+
+  - agent_id: burin_export
+    order: 7
+    skill: degrade_to_paper
+    config:
+      seal: "{{steps.2.artifact.presence_plane.seals.0}}"
+
+gate_profile:
+  default_autonomy: A2
+  non_delegable_approval:
+    - step: 3
+      role: context_steward
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:dj-thomson-pathways, pct: 55, role: technique-originator }
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 45, role: co-author }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - trust-key
+  - provenance-root
+  - deep-link
+  - dual-attestation
+  - offline-verify
+  - multisig
+  - pathways-technique

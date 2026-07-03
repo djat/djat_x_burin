@@ -1,0 +1,44 @@
+domain: Pathways
+subdomain: TrustKey
+action: BuildDimensionalLinks
+version: 1
+display_name: "Build Trust Key dimensional link catalog"
+description: >
+  PathwayRun that builds the full dimensional deep-link catalog from a minted Trust Key
+  root — registry-aligned slices (composite domain, lens, capability, location, time,
+  temperature, etc.) including one-time link variants.
+
+technique:
+  concept: Trust Key dimensional links
+  parent: Pathways.TrustKey.Issue@v1
+
+input_contract:
+  trust_key: { type: object }
+  provenance_context: { type: object, default: {} }
+
+output_contract:
+  type: trust_key_dimensional_links
+  format: json
+
+steps:
+  - agent_id: pathways_trustkey
+    order: 1
+    skill: build_dimensional_links
+    config:
+      trust_key: "{{trust_key}}"
+      provenance_context: "{{provenance_context}}"
+
+gate_profile:
+  default_autonomy: A3
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:dj-thomson-pathways, pct: 55, role: technique-originator }
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 45, role: co-author }
+
+tags:
+  - trust-key
+  - dimensional-links
+  - pathways-technique

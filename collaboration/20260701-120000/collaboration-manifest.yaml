@@ -1,0 +1,100 @@
+manifest_version: "1.0"
+
+bundle:
+  name: "The open Pathways × Burin Collaboration"
+  prepared_by: "the open Pathways project (Originator)"
+  prepared_for: "Cameron Sajedi and the Burin project"
+  date: 2026-07-01
+  updated: 2026-07-03
+  channel: djat-burin-20260701
+  purpose: |
+    Open invitation to co-develop Presence Pathways — orchestration recipes with
+    Burin spatiotemporal presence binding, dual licensing, offline verify, and
+    Trust Key provenance roots for multi-party workflows (Transect Trust demo).
+  disclosure_boundary: architecture-and-method
+  contains_code: true
+  collaboration_kind: open-invitation
+  reciprocation_required: false
+  status: "ASSEMBLED — open invitation"
+
+read_order:
+  - companion-bundle-index.md
+  - collaboration-spine.md
+  - executive-summaries/BURIN_PATHWAYS_THIRD_WAY_REPORT.md
+  - burin-pathways/APPLICATION_PLAYBOOK.md
+  - burin-pathways/TRANSECT_TRUST_PLAYBOOK.md
+  - burin-pathways/techniques/TRUST_KEY_TECHNIQUE.v1.md
+  - collaboration-pathways/test/HYPOTHESES.md
+  - sidecars/burin-formalized-as-pathways.md
+  - sidecars/trust-key-provenance-root-thesis.md
+  - sidecars/transect-trust-reference-application.md
+
+technique_provenance:
+  technique: collaboration-bundle
+  technique_version: "1.0"
+  co_originators:
+    - label: "Cameron Sajedi"
+      role: substrate-originator
+      artifact: ../Burin/
+    - label: "DJ Thomson"
+      role: pathways-formalization
+  trust_key_technique:
+    templates:
+      - Pathways.TrustKey.Issue@v1
+      - Pathways.TrustKey.Verify@v1
+      - Pathways.TrustKey.BuildDimensionalLinks@v1
+      - Pathways.TrustKey.IssueDimensionalLink@v1
+      - Pathways.TrustKey.VerifyDimensionalLink@v1
+    pattern: Pattern.TrustKey.ProvenanceKey
+    authors:
+      - label: "DJ Thomson"
+        role: co-author
+      - label: "Cameron Sajedi"
+        role: co-author
+  defining_pathways:
+    - Presence.Bundle.DualAttestation@v1
+    - Burin.Conformance.Test@v1
+    - Conservation.Program.QuarterlyClose@v1
+    - Pathways.TrustKey.Issue@v1
+  defining_patterns:
+    - Pattern.BurinSubstrate.DualLicenseSplit
+    - Pattern.PresencePathway.PresenceRequired
+    - Pattern.TrustKey.ProvenanceKey
+  flagship_hypothesis: H-BU1
+  transect_trust_hypothesis: H-BU11
+
+reference_applications:
+  - name: presence-passport
+    path: assets/presence-passport/
+    role: single-party effort proof
+  - name: transect-trust
+    path: assets/transect-trust/
+    live_url: https://transect-trust.fly.dev/
+    role: multi-party conservation quarter + Trust Key
+
+investigation:
+  investigation_id: open-burin-pathways-20260701
+  status: ASSEMBLED
+  hypotheses_registry: collaboration-pathways/test/HYPOTHESES.md
+
+files:
+  - path: companion-bundle-index.md
+    role: read-me-first
+  - path: collaboration-spine.md
+    role: spine
+  - path: burin-pathways/
+    role: domain-pathways
+  - path: collaboration-pathways/
+    role: technique-encoding
+  - path: sidecars/
+    role: depth
+  - path: proposed-spec-patches/
+    role: spec-proposals
+  - path: executive-summaries/
+    role: executive
+  - path: assets/presence-passport/
+    role: reference-app
+  - path: assets/transect-trust/
+    role: reference-app-transect-trust
+  - path: proof-results/
+    role: investigation-proof

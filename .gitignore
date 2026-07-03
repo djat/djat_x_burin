@@ -1,0 +1,13 @@
+node_modules/
+dist/
+backend/.venv/
+backend/presence_passport.db
+__pycache__/
+*.pyc
+.DS_Store
+keys/bundle-signing.key
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+

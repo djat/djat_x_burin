@@ -1,0 +1,70 @@
+domain: Presence
+subdomain: Field
+action: CaptureSeal
+version: 1
+display_name: "Capture field presence seal"
+description: >
+  Canonicalize a survey polygon, commit equal-area coverage, and emit a hardware-style
+  Burin seal binding what + where + when.
+
+input_contract:
+  polygon_geojson: { type: object, description: "GeoJSON Polygon" }
+  depth: { type: integer, default: 7 }
+  time_us: { type: integer, description: "Microsecond timestamp" }
+
+output_contract:
+  type: burin_seal_bundle
+  format: json
+  properties:
+    burin_seal: { type: object }
+    coverage_root: { type: string }
+    fingerprint_hex: { type: string }
+
+steps:
+  - agent_id: burin_canonicalize
+    order: 1
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{polygon_geojson}}"
+      depth: "{{depth}}"
+    output_schema:
+      type: object
+      properties:
+        fingerprint_hex: { type: string }
+        cells: { type: array }
+
+  - agent_id: burin_presence
+    order: 2
+    skill: commit_and_seal
+    config:
+      cells: "{{steps.1.artifact.cells}}"
+      depth: "{{depth}}"
+      time_us: "{{time_us}}"
+    output_schema:
+      type: object
+      properties:
+        burin_seal: { type: object }
+        coverage_root: { type: string }
+
+  - agent_id: burin_export
+    order: 3
+    skill: artifact_summary
+    config:
+      seal: "{{steps.2.artifact.burin_seal}}"
+
+gate_profile:
+  default_autonomy: A1
+
+license_terms:
+  type: free
+  attribution_required: true
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    commercial_kernel_contact: cameronsajedi@gmail.com
+    orchestration_scope: pathway-template-only
+
+tags:
+  - burin
+  - presence
+  - field-capture

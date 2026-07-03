@@ -1,0 +1,12 @@
+# Cloudflare Pages (free tier) — static Transect Trust UI
+# Deploy: npm run deploy
+# Auth: wrangler login (OAuth browser session; token in ~/.wrangler/config/default.toml)
+
+name = "transect-trust"
+compatibility_date = "2026-07-01"
+pages_build_output_dir = "dist"
+
+[vars]
+# Set your public API URL after backend is hosted (Pages has no FastAPI runtime).
+# VITE_* is baked at build time — use: VITE_API_URL=https://api.example.com npm run deploy
+# VITE_API_URL = ""

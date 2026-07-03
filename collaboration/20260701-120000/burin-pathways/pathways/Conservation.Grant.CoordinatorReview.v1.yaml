@@ -1,0 +1,84 @@
+domain: Conservation
+subdomain: Grant
+action: CoordinatorReview
+version: 1
+display_name: "Chapter coordinator reviews field submission"
+description: >
+  Grantee organization coordinator attests that a field submission is complete
+  for the reporting quarter, appends witness attestation to the effort seal,
+  and packages it for funder review without receiving exact nest coordinates.
+
+input_contract:
+  review_id: { type: string }
+  submission_id: { type: string }
+  field_run_id: { type: string }
+  coordinator_did: { type: string }
+  coordinator_name: { type: string }
+  grant_id: { type: string }
+  quarter: { type: string }
+  coverage_root: { type: string }
+  checklist_complete: { type: boolean, default: true }
+
+output_contract:
+  type: coordinator_review_attestation
+  format: json
+
+steps:
+  - agent_id: conservation_grant
+    order: 1
+    skill: load_field_submission_artifact
+    config:
+      field_run_id: "{{field_run_id}}"
+      submission_id: "{{submission_id}}"
+
+  - agent_id: burin_presence
+    order: 2
+    skill: append_witness_attestation
+    config:
+      coverage_root: "{{coverage_root}}"
+      epoch: 0
+      role: chapter_coordinator_witness
+
+  - agent_id: burin_presence
+    order: 3
+    skill: detect_fraud
+    config:
+      attestations: "{{steps.2.artifact.attestations}}"
+
+  - agent_id: conservation_grant
+    order: 4
+    skill: record_coordinator_review
+    config:
+      review_id: "{{review_id}}"
+      submission_id: "{{submission_id}}"
+      field_run_id: "{{field_run_id}}"
+      coordinator_did: "{{coordinator_did}}"
+      coordinator_name: "{{coordinator_name}}"
+      grant_id: "{{grant_id}}"
+      quarter: "{{quarter}}"
+      witness_attestation: "{{steps.2.artifact.attestations}}"
+      checklist_complete: "{{checklist_complete}}"
+
+gate_profile:
+  default_autonomy: A2
+  non_delegable_approval:
+    - step: 4
+      role: chapter_coordinator
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 35, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 45, role: pathways-formalization }
+    - { did: did:placeholder:hudson-estuary-audubon, pct: 20, role: grantee-org }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - coordinator-review
+  - witness-attestation
+  - transect-trust

@@ -1,0 +1,7 @@
+nodes:
+  - slug: spatiotemporal-trust
+    kind: composite_domain
+    display_name: Spatiotemporal Trust
+    description: >
+      Domain for pathways binding cryptographic presence (where/when) to orchestrated
+      field workflows. Substrate: Burin; orchestration: Pathways + Aqua.

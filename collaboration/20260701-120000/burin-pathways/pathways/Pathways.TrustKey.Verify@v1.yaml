@@ -1,0 +1,67 @@
+domain: Pathways
+subdomain: TrustKey
+action: Verify
+version: 1
+display_name: "Verify Trust Key offline"
+description: >
+  Generic Pathways technique: a relying party verifies a Trust Key against a trust card
+  or witness key-set, resolves deep links back into originating PathwayRun context,
+  without vendor login or live platform access.
+
+technique:
+  concept: Trust Key verification
+  authors:
+    - order: 1
+      did: did:placeholder:dj-thomson-pathways
+      name: DJ Thomson
+      role: co-author
+    - order: 2
+      did: did:placeholder:cameron-sajedi-burin
+      name: Cameron Sajedi
+      role: co-author
+
+input_contract:
+  trust_key: { type: object }
+  trust_card: { type: object }
+  dimension_scope: { type: object, default: {} }
+
+output_contract:
+  type: trust_key_verification
+  format: json
+
+steps:
+  - agent_id: pathways_trustkey
+    order: 1
+    skill: load_trust_key
+    config:
+      trust_key: "{{trust_key}}"
+
+  - agent_id: pathways_trustkey
+    order: 2
+    skill: verify_trust_key_offline
+    config:
+      trust_key: "{{steps.1.artifact.trust_key}}"
+      trust_card: "{{trust_card}}"
+      dimension_scope: "{{dimension_scope}}"
+
+  - agent_id: pathways_trustkey
+    order: 3
+    skill: resolve_deeplink_context
+    config:
+      deeplink_manifest: "{{steps.1.artifact.trust_key.deeplink_manifest}}"
+
+gate_profile:
+  default_autonomy: A3
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:dj-thomson-pathways, pct: 55, role: technique-originator }
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 45, role: co-author }
+
+tags:
+  - trust-key
+  - offline-verify
+  - relying-party
+  - pathways-technique

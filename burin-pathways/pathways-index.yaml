@@ -1,0 +1,22 @@
+bundle_id: burin-pathways
+version: "1.0.0"
+pathways:
+  - Presence.Field.CaptureSeal@v1
+  - Presence.Survey.EffortProof@v1
+  - Presence.Boundary.OverlapProof@v1
+  - Presence.Witness.AppendAttestation@v1
+  - Presence.Export.DegradeToPaper@v1
+  - Presence.Bundle.DualAttestation@v1
+  - Burin.Conformance.Test@v1
+  - Conservation.Program.Register@v1
+  - Conservation.Grant.Award@v1
+  - Conservation.Field.EffortSubmit@v1
+  - Conservation.Grant.CoordinatorReview@v1
+  - Conservation.Funder.QuarterVerify@v1
+  - Conservation.Program.QuarterlyClose@v1
+  - Conservation.Trust.CardIssue@v1
+  - Pathways.TrustKey.Issue@v1
+  - Pathways.TrustKey.Verify@v1
+  - Pathways.TrustKey.BuildDimensionalLinks@v1
+  - Pathways.TrustKey.IssueDimensionalLink@v1
+  - Pathways.TrustKey.VerifyDimensionalLink@v1

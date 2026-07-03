@@ -1,0 +1,253 @@
+# Collaboration bundle content manifest — SHA-256 bound
+manifest_version: "1.0"
+manifest_kind: content_manifest
+bundle_id: djat-mikeoss-20260528
+issued_at: 2026-07-03T21:46:08Z
+issuer_label: "Originator (Pathways framework author)"
+
+state:
+  hash_status: real
+  signature_status: signed
+
+bundle_root_hash:
+  algorithm: sha256
+  method: "sha256(sort-join(rel_path \t content_sha256 \n))"
+  hash: a04fea0cf956729d63ca344f04025f4aad5e20fd1099c9eb02ac175b2e59fc92
+
+file_count: 78
+
+files:
+  - rel_path: COLLABORATION_READINESS.md
+    content_sha256: c919fdb48e3c88e2573d1d28a47c6585d5eefa0e1f10af4da6268e8e655b1c2b
+    file_size: 2034
+  - rel_path: assets/presence-passport/README.md
+    content_sha256: b1a02ed1e7f771e23b2cd5fa478fec223d675f3838d0813dca1e762baeb415bc
+    file_size: 1057
+  - rel_path: assets/presence-passport/index.html
+    content_sha256: beb0176d0411bba2d9a918bc7ba9e5496d0e1d01ecc153485425ee9270373460
+    file_size: 533
+  - rel_path: assets/presence-passport/package-lock.json
+    content_sha256: e844f311a37208bc4bd903a6abc257e75fe1325ae067d6631b29afb44f53a60e
+    file_size: 62749
+  - rel_path: assets/presence-passport/package.json
+    content_sha256: 73ce85a75293d8e588e5ae1095ec548c99fb8544db88ab6f0404957cc4e66b4f
+    file_size: 547
+  - rel_path: assets/presence-passport/src/App.tsx
+    content_sha256: 0d3b87fcc0804b008fd009b1f4b76d0896fda5eb3556e11f35f046ade690a454
+    file_size: 16421
+  - rel_path: assets/presence-passport/src/api.ts
+    content_sha256: e516613c5bb38e8371cafc6dfec5b0a12fd80201f80570ff112b1a3d58865f57
+    file_size: 3411
+  - rel_path: assets/presence-passport/src/index.css
+    content_sha256: 29d6eb3a618c2a4bb2d3aa9dec1b31ea215f7ee1e29c93a3033831d0adf67c55
+    file_size: 8037
+  - rel_path: assets/presence-passport/src/main.tsx
+    content_sha256: c997bd61148a86e2c86794e75e7121b4b1f332b8fde14c476aea791f8e542ab0
+    file_size: 230
+  - rel_path: assets/presence-passport/src/vite-env.d.ts
+    content_sha256: 65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5
+    file_size: 38
+  - rel_path: assets/presence-passport/tsconfig.json
+    content_sha256: 5cb813fa644b57ff3c3c4d53c23bcf8431be240a6500916e1bf65370ba59f6d6
+    file_size: 409
+  - rel_path: assets/presence-passport/tsconfig.tsbuildinfo
+    content_sha256: 1c47e2595184b5c4546e6aade1ebd88f6f1371ea7ffdb37eb879ab9da75f377c
+    file_size: 98
+  - rel_path: assets/presence-passport/vite.config.ts
+    content_sha256: 0cc897befa3b08cd17756b3b2adc993005286904cf10f8519a098f0cb0eee16c
+    file_size: 228
+  - rel_path: assets/transect-trust/README.md
+    content_sha256: 27b618418b10a3b727dc36beec7bdbb170a8682a5c0a9cb55dc436c46666d11f
+    file_size: 1019
+  - rel_path: burin-pathways/APPLICATION_PLAYBOOK.md
+    content_sha256: 03eb5412781255e242962fb01e6dabceaad8a17fa1e56db8270eca49fb4a6b20
+    file_size: 5992
+  - rel_path: burin-pathways/PACKAGE.yaml
+    content_sha256: d52ee938d383810a40cd3cdf157f5b985905a6918f36c5d0179345028bfa695c
+    file_size: 3788
+  - rel_path: burin-pathways/TRANSECT_TRUST_PLAYBOOK.md
+    content_sha256: fb4e763652c470c0fbe583f7b10e26ce855acdb31c11b674cbdda2ce1377637f
+    file_size: 4774
+  - rel_path: burin-pathways/pathways/Burin.Conformance.Test.v1.yaml
+    content_sha256: 52f29cbd52c64bd8328aa3e7828622ea2e1be8987a93b3c4056d50e0b13ec3d1
+    file_size: 974
+  - rel_path: burin-pathways/pathways/Conservation.Field.EffortSubmit.v1.yaml
+    content_sha256: 2ba92d23aa13bd17af186e3947a81e74408c4d8bc9ac2db7ad509c047c0a9b3b
+    file_size: 2805
+  - rel_path: burin-pathways/pathways/Conservation.Funder.QuarterVerify.v1.yaml
+    content_sha256: 2e8c965351fc301a1990c98803437a1e363e35d7de9caa8780523835aec9b89f
+    file_size: 2744
+  - rel_path: burin-pathways/pathways/Conservation.Grant.Award.v1.yaml
+    content_sha256: 156a085d7f1212656dfd73c42b36a67de182efa982efc202f9038619ddefebf9
+    file_size: 2438
+  - rel_path: burin-pathways/pathways/Conservation.Grant.CoordinatorReview.v1.yaml
+    content_sha256: 9830eb0cbcce824f631379b909c81665430152665e1cbd10bcc6279b6b19fc49
+    file_size: 2464
+  - rel_path: burin-pathways/pathways/Conservation.Program.QuarterlyClose.v1.yaml
+    content_sha256: 7da7e341eb31f6a6f33b75348f1e4215868cce67584f867430b0da7dac0be572
+    file_size: 2626
+  - rel_path: burin-pathways/pathways/Conservation.Program.Register.v1.yaml
+    content_sha256: 49a17096604dba06f2b4749e8ec31e7932a8ffc3c79bc65cdfb66182df5de374
+    file_size: 2480
+  - rel_path: burin-pathways/pathways/Conservation.Trust.CardIssue.v1.yaml
+    content_sha256: 4924c2795a26576e297fc5b99c214fdd1c926077f1d02640cbd65357839be388
+    file_size: 1197
+  - rel_path: burin-pathways/pathways/Pathways.TrustKey.BuildDimensionalLinks@v1.yaml
+    content_sha256: a6a40720b9a90edebff2e90e7c033849db7e02adcd78e62880d4691c904afb6d
+    file_size: 1175
+  - rel_path: burin-pathways/pathways/Pathways.TrustKey.Issue@v1.yaml
+    content_sha256: 772531c54f2708ce3baf9707e6917d7ab5091df96f5c2aced43dd2b4587c2748
+    file_size: 3929
+  - rel_path: burin-pathways/pathways/Pathways.TrustKey.IssueDimensionalLink@v1.yaml
+    content_sha256: 127ab3b511ad86f1884c7282aa72f7e6770849c2b11b70cf24314fa083535948
+    file_size: 1376
+  - rel_path: burin-pathways/pathways/Pathways.TrustKey.Verify@v1.yaml
+    content_sha256: 5a51acc091724e043237e91162f94116ebbbcde125ebb1c52840d362ed1bdb32
+    file_size: 1693
+  - rel_path: burin-pathways/pathways/Pathways.TrustKey.VerifyDimensionalLink@v1.yaml
+    content_sha256: 58c48bd4dbd3005fc65bb3b5c58cb3266f65e96d3c7b44f5388572d761c9ae8c
+    file_size: 1487
+  - rel_path: burin-pathways/pathways/Presence.Boundary.OverlapProof.v1.yaml
+    content_sha256: e926e6e1861916c868ee70b2a50669b421b17f577342c58dce34eb800510e7ac
+    file_size: 1074
+  - rel_path: burin-pathways/pathways/Presence.Bundle.DualAttestation.v1.yaml
+    content_sha256: 11f93e6a1c0b980d990555541f2bbe7c4f6f95af60a0847eda3d697221f1d974
+    file_size: 870
+  - rel_path: burin-pathways/pathways/Presence.Export.DegradeToPaper.v1.yaml
+    content_sha256: 6760615353b65c0f267e62aaeb362502e5da34d8b0d01d46b2edb998cbd0c0ac
+    file_size: 674
+  - rel_path: burin-pathways/pathways/Presence.Field.CaptureSeal.v1.yaml
+    content_sha256: ca582db291a32f07ff68cccaed1db85bc8a8b32a4be38a9e971ccf5e630df46d
+    file_size: 1702
+  - rel_path: burin-pathways/pathways/Presence.Survey.EffortProof.v1.yaml
+    content_sha256: dd16701c9090496a588df07aac2d220de43c7c8412c9bf297ea94d25668140f3
+    file_size: 1982
+  - rel_path: burin-pathways/pathways/Presence.Witness.AppendAttestation.v1.yaml
+    content_sha256: 0dc8cfe55fc9a0fe59f74472bf55eee98f4271555b07f17637dae7c1b1160044
+    file_size: 933
+  - rel_path: burin-pathways/pathways-index.yaml
+    content_sha256: 71a4b47808e7437f3dcfcd6d9e4dd2224d6e7f87807743bc4dba970929c02c2c
+    file_size: 784
+  - rel_path: burin-pathways/patterns/Pattern.BurinSubstrate.DualLicenseSplit.yaml
+    content_sha256: 630a6d3bd487b8012066d58d3015f10bfe221587bd34520931ea0693732883cd
+    file_size: 781
+  - rel_path: burin-pathways/patterns/Pattern.PresencePathway.PresenceRequired.yaml
+    content_sha256: 0844e6026291dd74d81cbd073ab1e8b85d5fc811c7f068669e901a8f47b612c7
+    file_size: 655
+  - rel_path: burin-pathways/patterns/Pattern.TrustKey.ProvenanceKey.yaml
+    content_sha256: 4d028e02aec827287f4c9b8672a870bf2dc02b6b89d6b03a6b582194591dda78
+    file_size: 3191
+  - rel_path: burin-pathways/registry/abstract-capabilities.yaml
+    content_sha256: a1ea16815f4ea4021859e5ef4e246a8c53ae6c9eff9690843655edb6f2df0f4c
+    file_size: 1688
+  - rel_path: burin-pathways/registry/composite-domains.yaml
+    content_sha256: 30390a1339cc339fbcd20c34813ea35b95a56db499d61bdbdb366bd86b463035
+    file_size: 282
+  - rel_path: burin-pathways/registry/context-lenses.yaml
+    content_sha256: be28e50c505a40be06e1f9eff9aae0247a763041731f0a0cd371253d7c57ec09
+    file_size: 401
+  - rel_path: burin-pathways/techniques/TRUST_KEY_TECHNIQUE.v1.md
+    content_sha256: c724ef13fe2c2eeb4aa6f4ee81d80c976f14e0612727511dc6acdef770760973
+    file_size: 5024
+  - rel_path: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
+    content_sha256: 49f9ec619fe2ba49d4c68aa32ac4eda74f5f12103e18f2b47056edb749c3aa3e
+    file_size: 205400
+  - rel_path: canon/PATHWAYS_REFERENCE_v1.1.0.md
+    content_sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
+    file_size: 128628
+  - rel_path: collaboration-manifest.yaml
+    content_sha256: 59f52f0517bb2dc5c45e93fffbb354bb5ad915f7ced49a579038aa283e9b6c39
+    file_size: 3234
+  - rel_path: collaboration-pathways/APPLICATION_PLAYBOOK.md
+    content_sha256: 5d43ade4cb8739fc3f9611b514132920b374df5caf0fd3eea2d87907f17ad020
+    file_size: 397
+  - rel_path: collaboration-pathways/test/HYPOTHESES.md
+    content_sha256: 4ad6135deddad2adc4308a1d7f0235766da63534c16b6ec1eeadbba954f4d057
+    file_size: 4248
+  - rel_path: collaboration-spine.md
+    content_sha256: 369828c9605eed153e295cebf835365c65f34e60a0240554bef35479b9345606
+    file_size: 2530
+  - rel_path: companion-bundle-index.md
+    content_sha256: 598eef3c7ecbcc1e1b1e283ade3c91894ec21b9c0f2fc9665ed1b5adda5c7115
+    file_size: 2407
+  - rel_path: executive-summaries/BURIN_PATHWAYS_THIRD_WAY_REPORT.md
+    content_sha256: b4d9af9574c926d6713596863f0ebaf5ab9404bee82b41db5606bbec6a775d88
+    file_size: 2882
+  - rel_path: pathway-runs/pr_098ac032335b.json
+    content_sha256: ba0e34c1c409dadac9e219257796f43bbdda66f67e5d86788d722f31f013603f
+    file_size: 2376
+  - rel_path: pathway-runs/pr_7290d35dca82.json
+    content_sha256: 1331aa9aa152627bac6ec878c33dc7e2230af100a92f2a2f60fd226a685ed052
+    file_size: 151
+  - rel_path: proof-results/H-BU1.yaml
+    content_sha256: c1401945b076220bd9b38a15580b6f43c18b526fae1d7f7268896ab991955417
+    file_size: 83
+  - rel_path: proof-results/H-BU11.yaml
+    content_sha256: 81a14f3308f82c4fdde8bdcf8bba05e71bb38ff8f5c116871e48f141c0fa6dc2
+    file_size: 572
+  - rel_path: proof-results/H-BU5.yaml
+    content_sha256: 235d011a5a0fff04e187003cb0a68e5f735acb442f4ceb27224554d0b5bad916
+    file_size: 163
+  - rel_path: proof-results/H-BU9.yaml
+    content_sha256: 88e6f384e37c927c2d8f23eb09bf29d1e9e3db9828bb2cd548ff732a2a5d04a5
+    file_size: 80
+  - rel_path: proof-results/conformance.yaml
+    content_sha256: 04d1f13df0fd5828bb70e54280e720b3bf2d50d114ec05a224099974f50aa056
+    file_size: 71
+  - rel_path: proof-results/run_pr_7290d35dca82.json
+    content_sha256: 1331aa9aa152627bac6ec878c33dc7e2230af100a92f2a2f60fd226a685ed052
+    file_size: 151
+  - rel_path: proposed-spec-patches/L6-dual-substrate-verify-bundle.md
+    content_sha256: bffcf70212b05fcf471533bad7e0b56e5cee42dd2aa6c5107d5a9f7dd27e8a47
+    file_size: 856
+  - rel_path: proposed-spec-patches/N5-substrate-license-ref.md
+    content_sha256: 4cb9faad9ac5b9bc3e340a72dff85a200e0cbef09562bab29095b64e1c762f33
+    file_size: 1229
+  - rel_path: proposed-spec-patches/N6-burin-seal-artifact.md
+    content_sha256: 32d82b368e1380f72485a909d2fb6aac45fa9127c05fff5478a1153d1286dd1a
+    file_size: 993
+  - rel_path: proposed-spec-patches/N7-spatiotemporal-gate.md
+    content_sha256: 695a630ef0ef75b99439e7e37edc91d67b5a47ba8bdc0200df6ffa2d8aed48bb
+    file_size: 921
+  - rel_path: proposed-spec-patches/N8-presence-attestation-glossary.md
+    content_sha256: 75208c7f28499ef78d0ae8f3dfddc53387ddb9d0b731f02618f17f3b19fbbc2d
+    file_size: 616
+  - rel_path: proposed-spec-patches/README.md
+    content_sha256: 9e588eccd334d2d7a2fac4803b654868db47e149fd1b66d06e63f16fda4ab315
+    file_size: 472
+  - rel_path: sidecars/burin-formalized-as-pathways.md
+    content_sha256: 3a4f8dcbdacdb7246ff97b910d19f6abc3d08b34c412e73759595fab1935581a
+    file_size: 1174
+  - rel_path: sidecars/degrade-to-paper-derivative.md
+    content_sha256: 86f9644468179949b568b44e12f2ade8a40eb7608b088208271593575f9b8c21
+    file_size: 217
+  - rel_path: sidecars/dual-attestation-sandwich-thesis.md
+    content_sha256: 315ca0000aa294894566d49ac41efe53c585f98cc785d3c17bb2b810caadcfb6
+    file_size: 956
+  - rel_path: sidecars/fraud-proof-halt-gate.md
+    content_sha256: aafe9e400ec595c64116c0824e36978649636f2c2c5a5314e17862fb79500bbb
+    file_size: 215
+  - rel_path: sidecars/presence-pathway-marketplace-fork.md
+    content_sha256: eb0db2f777fb5cf3487324613e137d480380992ced1c717a2632669a97a918d6
+    file_size: 196
+  - rel_path: sidecars/spatiotemporal-phase-gate.md
+    content_sha256: 31f930a20009a5fe31f0c5dfb344c26e883de8257b746a90e968963e8b44701a
+    file_size: 229
+  - rel_path: sidecars/substrate-orchestration-license-split.md
+    content_sha256: 744c85360a2d848d834ad73b8aa69c50d9c6e5c611fff72e5a602f2de59ff299
+    file_size: 863
+  - rel_path: sidecars/transect-trust-reference-application.md
+    content_sha256: efa3070d47ccf0ece42acc686acf5c66757876891fbb34943a2803acb713b5d3
+    file_size: 2017
+  - rel_path: sidecars/trust-card-practice-profile-thesis.md
+    content_sha256: 3420e0e0958b02acae2b7908f2e1bd831a97f17c0358e9a4bf3680253e89206b
+    file_size: 338
+  - rel_path: sidecars/trust-key-provenance-root-thesis.md
+    content_sha256: 11ae46258f01bd0ffc90b68445682b026c22740117d529d3729dd525526fe0ef
+    file_size: 2470
+  - rel_path: sidecars/witness-not-authority-channel.md
+    content_sha256: c76c8c25edc8dc7823223452626b46e90bbcedde75c2160bcf15069dee413c12
+    file_size: 442
+  - rel_path: sidecars/zk-step-artifact-binding.md
+    content_sha256: 060682cd8e1c1748a25b5d7cdcda58717f133e50ccb3e6897a1c8002f043ea45
+    file_size: 248

@@ -1,0 +1,37 @@
+domain: Presence
+subdomain: Bundle
+action: DualAttestation
+version: 1
+display_name: "Dual-attestation collaboration bundle"
+description: >
+  Export a PathwayRun with Aqua orchestration attestation and Burin presence seals
+  into a verifiable collaboration bundle — no merged super-hash.
+
+input_contract:
+  run_id: { type: string }
+  bundle_channel: { type: string, default: "djat-burin-export" }
+
+output_contract:
+  type: dual_attestation_bundle
+  format: json
+
+steps:
+  - agent_id: burin_export
+    order: 1
+    skill: collect_run_artifacts
+    config:
+      run_id: "{{run_id}}"
+
+  - agent_id: application
+    order: 2
+    skill: assemble_dual_attestation_bundle
+    config:
+      run_artifacts: "{{steps.1.artifact}}"
+      channel: "{{bundle_channel}}"
+      merge_policy: hash_linked_cross_reference_only
+
+tags:
+  - burin
+  - aqua
+  - dual-attestation
+  - bundle

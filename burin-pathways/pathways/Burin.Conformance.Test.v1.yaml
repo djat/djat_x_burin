@@ -1,0 +1,49 @@
+domain: Burin
+subdomain: Conformance
+action: Test
+version: 1
+display_name: "Burin substrate conformance test"
+description: >
+  BT-1..BT-7: seal verify, chain verify, fraud inject, canonicalize determinism,
+  ZK parity stub, paper export, dual-attestation bundle verify.
+
+input_contract: {}
+
+output_contract:
+  type: conformance_report
+  format: json
+
+steps:
+  - agent_id: burin_presence
+    order: 1
+    skill: conformance_bt1_seal_verify
+
+  - agent_id: burin_presence
+    order: 2
+    skill: conformance_bt2_chain_verify
+
+  - agent_id: burin_presence
+    order: 3
+    skill: conformance_bt3_fraud_inject
+
+  - agent_id: burin_canonicalize
+    order: 4
+    skill: conformance_bt4_determinism
+
+  - agent_id: burin_zk
+    order: 5
+    skill: conformance_bt5_zk_stub
+
+  - agent_id: burin_export
+    order: 6
+    skill: conformance_bt6_paper_export
+
+  - agent_id: burin_export
+    order: 7
+    skill: conformance_bt7_dual_bundle
+
+is_system: true
+
+tags:
+  - burin
+  - conformance

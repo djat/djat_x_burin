@@ -1,0 +1,97 @@
+domain: Conservation
+subdomain: Funder
+action: QuarterVerify
+version: 1
+display_name: "Funder verifies quarterly effort packet"
+description: >
+  Grant program officer verifies a quarterly packet: program registration,
+  grant award boundary, field effort proofs, and coordinator attestations —
+  offline-capable, dual-plane (orchestration + presence), no merged super-hash.
+
+input_contract:
+  verify_id: { type: string }
+  program_run_id: { type: string }
+  grant_id: { type: string }
+  quarter: { type: string }
+  field_run_ids: { type: array }
+  review_run_ids: { type: array }
+  funder_did: { type: string }
+  trust_card: { type: object }
+
+output_contract:
+  type: funder_quarter_verification
+  format: json
+
+steps:
+  - agent_id: conservation_funder
+    order: 1
+    skill: collect_quarter_runs
+    config:
+      program_run_id: "{{program_run_id}}"
+      grant_id: "{{grant_id}}"
+      quarter: "{{quarter}}"
+      field_run_ids: "{{field_run_ids}}"
+      review_run_ids: "{{review_run_ids}}"
+
+  - agent_id: conservation_funder
+    order: 2
+    skill: verify_trust_card
+    config:
+      trust_card: "{{trust_card}}"
+      witness_pubkeys: "{{trust_card.witness_pubkeys}}"
+
+  - agent_id: conservation_funder
+    order: 3
+    skill: verify_presence_seals_offline
+    config:
+      field_run_ids: "{{field_run_ids}}"
+      trust_card: "{{trust_card}}"
+
+  - agent_id: conservation_funder
+    order: 4
+    skill: verify_bounded_disclosure_claims
+    config:
+      field_run_ids: "{{field_run_ids}}"
+      k_min_required: 3
+
+  - agent_id: application
+    order: 5
+    skill: assemble_dual_attestation_bundle
+    config:
+      run_artifacts: "{{steps.1.artifact.collected_artifacts}}"
+      channel: "transect-trust-quarter-verify"
+
+  - agent_id: conservation_funder
+    order: 6
+    skill: record_funder_verdict
+    config:
+      verify_id: "{{verify_id}}"
+      grant_id: "{{grant_id}}"
+      quarter: "{{quarter}}"
+      funder_did: "{{funder_did}}"
+      verification_passed: "{{steps.3.artifact.all_seals_valid}}"
+      dual_bundle: "{{steps.5.artifact}}"
+
+gate_profile:
+  default_autonomy: A2
+  non_delegable_approval:
+    - step: 6
+      role: funder_program_officer
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 35, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 45, role: pathways-formalization }
+    - { did: did:placeholder:nea-estuary-collab, pct: 20, role: program-operator }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - funder-verify
+  - dual-attestation
+  - transect-trust

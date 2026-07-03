@@ -1,0 +1,11 @@
+lenses:
+  - slug: field-evidence
+    display_name: Field Evidence
+    description: >
+      Lens for conservation, citizen science, and regulatory field capture workflows
+      where presence binding and selective disclosure matter.
+
+  - slug: witness-channel
+    display_name: Witness Channel
+    description: >
+      Lens for satellite/ground witness relay business models — witness-not-authority.

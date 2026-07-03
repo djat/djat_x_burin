@@ -1,0 +1,35 @@
+domain: Presence
+subdomain: Export
+action: DegradeToPaper
+version: 1
+display_name: "Degrade seal to paper"
+description: >
+  Export a pathway run's Burin seal as 24 spoken words and a printable trust card.
+
+input_contract:
+  run_id: { type: string }
+
+output_contract:
+  type: paper_export
+  format: json
+  properties:
+    spoken_seal_24w: { type: string }
+    trust_card: { type: object }
+
+steps:
+  - agent_id: burin_export
+    order: 1
+    skill: extract_seal_from_run
+    config:
+      run_id: "{{run_id}}"
+
+  - agent_id: burin_export
+    order: 2
+    skill: degrade_to_paper
+    config:
+      seal: "{{steps.1.artifact.burin_seal}}"
+
+tags:
+  - burin
+  - paper
+  - degrade

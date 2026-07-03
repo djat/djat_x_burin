@@ -1,0 +1,46 @@
+domain: Presence
+subdomain: Boundary
+action: OverlapProof
+version: 1
+display_name: "Boundary overlap proof"
+description: >
+  Prove two regions overlap without surrendering full map geometry — dual coverage
+  roots with overlap witness.
+
+input_contract:
+  region_a_geojson: { type: object }
+  region_b_geojson: { type: object }
+  depth: { type: integer, default: 4 }
+
+output_contract:
+  type: overlap_proof
+  format: json
+
+steps:
+  - agent_id: burin_canonicalize
+    order: 1
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{region_a_geojson}}"
+      depth: "{{depth}}"
+
+  - agent_id: burin_canonicalize
+    order: 2
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{region_b_geojson}}"
+      depth: "{{depth}}"
+
+  - agent_id: burin_presence
+    order: 3
+    skill: overlap_proof
+    config:
+      root_a: "{{steps.1.artifact.fingerprint_hex}}"
+      root_b: "{{steps.2.artifact.fingerprint_hex}}"
+      cells_a: "{{steps.1.artifact.cells}}"
+      cells_b: "{{steps.2.artifact.cells}}"
+
+tags:
+  - burin
+  - boundary
+  - overlap

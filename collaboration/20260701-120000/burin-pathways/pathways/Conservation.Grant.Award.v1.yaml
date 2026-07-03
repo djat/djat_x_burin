@@ -1,0 +1,84 @@
+domain: Conservation
+subdomain: Grant
+action: Award
+version: 1
+display_name: "Award grant to reporting unit"
+description: >
+  Funder awards a grant binding a grantee chapter to a public reporting unit
+  (HUC watershed or PAD-US protected area). Canonicalizes unit boundary and
+  records award terms without exposing sensitive nest-site coordinates.
+
+input_contract:
+  grant_id: { type: string }
+  program_id: { type: string }
+  grantee_did: { type: string }
+  grantee_name: { type: string }
+  unit_id: { type: string }
+  unit_geojson: { type: object }
+  unit_source_ref: { type: string }
+  award_amount_usd: { type: number }
+  reporting_quarters: { type: array }
+  program_run_id: { type: string }
+
+output_contract:
+  type: conservation_grant_award
+  format: json
+
+steps:
+  - agent_id: burin_canonicalize
+    order: 1
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{unit_geojson}}"
+      depth: "{{disclosure_floor_depth}}"
+
+  - agent_id: conservation_grant
+    order: 2
+    skill: record_grant_award
+    config:
+      grant_id: "{{grant_id}}"
+      program_id: "{{program_id}}"
+      grantee_did: "{{grantee_did}}"
+      grantee_name: "{{grantee_name}}"
+      unit_id: "{{unit_id}}"
+      unit_source_ref: "{{unit_source_ref}}"
+      award_amount_usd: "{{award_amount_usd}}"
+      reporting_quarters: "{{reporting_quarters}}"
+      boundary_fingerprint: "{{steps.1.artifact.fingerprint_hex}}"
+
+  - agent_id: burin_presence
+    order: 3
+    skill: commit_and_seal
+    config:
+      cells: "{{steps.1.artifact.cells}}"
+      depth: "{{disclosure_floor_depth}}"
+      time_us: "{{time_us}}"
+
+  - agent_id: conservation_grant
+    order: 4
+    skill: link_program_registration
+    config:
+      program_run_id: "{{program_run_id}}"
+      grant_id: "{{grant_id}}"
+      award_seal: "{{steps.3.artifact.burin_seal}}"
+
+gate_profile:
+  default_autonomy: A2
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 35, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 45, role: pathways-formalization }
+    - { did: did:placeholder:nea-estuary-collab, pct: 20, role: program-operator }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - grant-award
+  - boundary-bind
+  - transect-trust

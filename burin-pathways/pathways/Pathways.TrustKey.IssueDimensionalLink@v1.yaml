@@ -1,0 +1,49 @@
+domain: Pathways
+subdomain: TrustKey
+action: IssueDimensionalLink
+version: 1
+display_name: "Issue scoped Trust Key dimensional link"
+description: >
+  PathwayRun that issues a single dimensional deep link from an existing Trust Key root.
+  Pass dimension_scope query parameters (location, time, temperature, capability, etc.)
+  and optionally mark one_time_key for a burn-after-verify slice.
+
+technique:
+  concept: Trust Key dimensional link issuance
+  parent: Pathways.TrustKey.Issue@v1
+
+input_contract:
+  root_trust_key: { type: object }
+  dimension_scope: { type: object }
+  label: { type: string, default: "Scoped dimensional link" }
+  one_time_key: { type: boolean, default: false }
+
+output_contract:
+  type: trust_key_dimensional_link
+  format: json
+
+steps:
+  - agent_id: pathways_trustkey
+    order: 1
+    skill: issue_dimensional_link
+    config:
+      root_trust_key: "{{root_trust_key}}"
+      dimension_scope: "{{dimension_scope}}"
+      label: "{{label}}"
+      one_time_key: "{{one_time_key}}"
+
+gate_profile:
+  default_autonomy: A3
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:dj-thomson-pathways, pct: 55, role: technique-originator }
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 45, role: co-author }
+
+tags:
+  - trust-key
+  - dimensional-link
+  - one-time-key
+  - pathways-technique

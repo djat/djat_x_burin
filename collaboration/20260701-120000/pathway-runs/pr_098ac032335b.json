@@ -1,0 +1,78 @@
+{
+  "id": "pr_098ac032335b",
+  "template_identity": "Presence.Survey.EffortProof@v1",
+  "status": "COMPLETED",
+  "aqua_stub_id": "aqua_stub_e0a39c5487ebedb5",
+  "step_artifacts": {
+    "1": {
+      "artifact_type": "burin_coverage",
+      "fingerprint_hex": "03bf105e20b6555b79febe7faf7e89b2f8593c7c91a108e7f73971dd0aecba5e",
+      "cells": [
+        [
+          "P",
+          0,
+          1,
+          1,
+          2,
+          7,
+          6,
+          2
+        ],
+        [
+          "P",
+          0,
+          1,
+          1,
+          2,
+          7,
+          6,
+          5
+        ]
+      ],
+      "depth": 7,
+      "cell_count": 2
+    },
+    "2": {
+      "artifact_type": "burin_seal",
+      "burin_seal": {
+        "v": 1,
+        "commitment": "03bf105e20b6555b79febe7faf7e89b2f8593c7c91a108e7f73971dd0aecba5e",
+        "cell": [
+          "P",
+          0,
+          1,
+          1,
+          2,
+          7,
+          6,
+          2
+        ],
+        "time_us": 1000000,
+        "attestation": {
+          "pubkey": "0404bd54fbd440fe1035f7fd9e6ed2595d7c060d2cd00b515b13138c1ac1d0afa03d3a0858d902c1efb98bc45c4f50359a5067e46ba68d027c9a1955138d8b944f",
+          "epoch": 0,
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "root": "09a9c75356dbe9be08077f9e4f74f2fd539d4439f86996b82c4c67bd9b8ec879",
+          "issued_at": 1000000,
+          "subject": null,
+          "policy": 0,
+          "sig": "00883521961772d09316047e6db8616f2224e03b0b3024ae0b151d9499614d08dcda1e864e9fc430690981519d15382a6c8c31e55e741639fc752f77d51ad5a0"
+        }
+      },
+      "coverage_root": "03bf105e20b6555b79febe7faf7e89b2f8593c7c91a108e7f73971dd0aecba5e",
+      "fingerprint_hex": "03bf105e20b6555b79febe7faf7e89b2f8593c7c91a108e7f73971dd0aecba5e",
+      "spoken_seal_24w": "jewel tilt armed series bitter skirt problem hundred divert style soup vote used spell curve gallery arctic chest moon mutual crouch canal brother year"
+    },
+    "3": {
+      "artifact_type": "burin_zk_survey_proof",
+      "burin_zk_survey_proof": {
+        "type": "survey_effort_stub",
+        "coverage_root": "03bf105e20b6555b79febe7faf7e89b2f8593c7c91a108e7f73971dd0aecba5e",
+        "k_proven": 3,
+        "k_min": 3,
+        "note": "Full PLONK proof via Burin/zk/ \u2014 stub for MVP pathway binding"
+      },
+      "k_proven": 3
+    }
+  }
+}

@@ -1,0 +1,96 @@
+domain: Conservation
+subdomain: Field
+action: EffortSubmit
+version: 1
+display_name: "Field monitor submits bounded effort proof"
+description: >
+  Volunteer field monitor submits survey effort for a grant reporting period.
+  Validates work zone against grant unit boundary, seals presence, and emits
+  ZK bounded-disclosure effort proof (>= K cells, no nest-site pins).
+
+input_contract:
+  submission_id: { type: string }
+  grant_id: { type: string }
+  monitor_did: { type: string }
+  monitor_name: { type: string }
+  quarter: { type: string }
+  transect_ids: { type: array }
+  polygon_geojson: { type: object }
+  grant_boundary_fingerprint: { type: string }
+  depth: { type: integer, default: 7 }
+  time_us: { type: integer }
+  k_min: { type: integer, default: 3 }
+
+output_contract:
+  type: field_effort_submission
+  format: json
+
+steps:
+  - agent_id: conservation_field
+    order: 1
+    skill: validate_within_grant_boundary
+    config:
+      submission_id: "{{submission_id}}"
+      grant_id: "{{grant_id}}"
+      grant_boundary_fingerprint: "{{grant_boundary_fingerprint}}"
+      polygon_geojson: "{{polygon_geojson}}"
+      depth: "{{depth}}"
+
+  - agent_id: burin_canonicalize
+    order: 2
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{polygon_geojson}}"
+      depth: "{{depth}}"
+
+  - agent_id: burin_presence
+    order: 3
+    skill: commit_and_seal
+    config:
+      cells: "{{steps.2.artifact.cells}}"
+      depth: "{{depth}}"
+      time_us: "{{time_us}}"
+
+  - agent_id: burin_zk
+    order: 4
+    skill: survey_effort_proof
+    config:
+      coverage_root: "{{steps.3.artifact.coverage_root}}"
+      cells: "{{steps.2.artifact.cells}}"
+      k_min: "{{k_min}}"
+      public_region: "{{steps.2.artifact.fingerprint_hex}}"
+
+  - agent_id: conservation_field
+    order: 5
+    skill: record_field_submission
+    config:
+      submission_id: "{{submission_id}}"
+      grant_id: "{{grant_id}}"
+      monitor_did: "{{monitor_did}}"
+      monitor_name: "{{monitor_name}}"
+      quarter: "{{quarter}}"
+      transect_ids: "{{transect_ids}}"
+      effort_seal: "{{steps.3.artifact.burin_seal}}"
+      zk_proof: "{{steps.4.artifact.burin_zk_survey_proof}}"
+
+gate_profile:
+  default_autonomy: A1
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 40, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 40, role: pathways-formalization }
+    - { did: did:placeholder:channel-partner, pct: 20, role: witness-channel }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - field-submission
+  - bounded-disclosure
+  - citizen-science
+  - transect-trust

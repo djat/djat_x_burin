@@ -1,0 +1,14 @@
+hypothesis_id: H-BU11
+title: Trust Key quarter close with dimensional PathwayRuns
+status: confirmed
+filed: 2026-07-03
+reference_app: transect-trust
+pathways:
+  - Pathways.TrustKey.Issue@v1
+  - Pathways.TrustKey.VerifyDimensionalLink@v1
+  - Pathways.TrustKey.IssueDimensionalLink@v1
+  - Conservation.Program.QuarterlyClose@v1
+confirm: |
+  Quarter close launches four sibling PathwayRuns linked in the run graph.
+  Trust Key artifact includes dimensional_links with location, time, temperature params.
+  Live deployment verifies at https://transect-trust.fly.dev/api/health

@@ -1,0 +1,85 @@
+domain: Conservation
+subdomain: Program
+action: QuarterlyClose
+version: 1
+display_name: "Close reporting quarter across all parties"
+description: >
+  Aggregates all PathwayRuns for a program quarter and records the close against
+  sibling PathwayRuns for Pathways.TrustKey.Issue@v1, Verify, and dimensional links.
+
+input_contract:
+  close_id: { type: string }
+  program_id: { type: string }
+  quarter: { type: string }
+  run_graph: { type: object }
+  program_run_id: { type: string }
+  verify_run_id: { type: string }
+  trust_key_run_id: { type: string }
+  trust_key_verify_run_id: { type: string, default: "" }
+  trust_key_dimensional_link_run_id: { type: string, default: "" }
+  trust_key: { type: object }
+  deeplink_manifest: { type: object }
+  multisig_envelope: { type: object }
+  spoken_seal_24w: { type: string, default: "" }
+  close_packet_id: { type: string }
+
+output_contract:
+  type: quarterly_close_packet
+  format: json
+
+steps:
+  - agent_id: conservation_program
+    order: 1
+    skill: validate_run_graph_closure
+    config:
+      close_id: "{{close_id}}"
+      program_id: "{{program_id}}"
+      quarter: "{{quarter}}"
+      run_graph: "{{run_graph}}"
+
+  - agent_id: conservation_program
+    order: 2
+    skill: compute_royalty_attribution
+    config:
+      program_id: "{{program_id}}"
+      run_graph: "{{run_graph}}"
+
+  - agent_id: conservation_program
+    order: 3
+    skill: record_quarterly_close
+    config:
+      close_id: "{{close_id}}"
+      program_id: "{{program_id}}"
+      quarter: "{{quarter}}"
+      program_run_id: "{{program_run_id}}"
+      verify_run_id: "{{verify_run_id}}"
+      close_packet_id: "{{close_packet_id}}"
+      trust_key_run_id: "{{trust_key_run_id}}"
+      trust_key_verify_run_id: "{{trust_key_verify_run_id}}"
+      trust_key_dimensional_link_run_id: "{{trust_key_dimensional_link_run_id}}"
+      trust_key: "{{trust_key}}"
+      deeplink_manifest: "{{deeplink_manifest}}"
+      multisig_envelope: "{{multisig_envelope}}"
+      spoken_seal_24w: "{{spoken_seal_24w}}"
+
+gate_profile:
+  default_autonomy: A2
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:dj-thomson-pathways, pct: 45, role: technique-originator }
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 35, role: co-author }
+    - { did: did:placeholder:nea-estuary-collab, pct: 20, role: program-operator }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    orchestration_scope: pathway-template-only
+
+tags:
+  - conservation
+  - quarterly-close
+  - trust-key
+  - multi-party
+  - transect-trust

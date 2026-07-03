@@ -1,0 +1,12 @@
+**/.git
+**/.venv
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/.cursor
+**/dist
+backend/presence_passport.db
+collaboration
+*.md
+!burin-pathways/**/*.md
+transect-trust/wrangler.toml

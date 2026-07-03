@@ -1,0 +1,70 @@
+domain: Presence
+subdomain: Survey
+action: EffortProof
+version: 1
+display_name: "Survey effort proof (ZK bounded disclosure)"
+description: >
+  Capture field coverage, seal presence, and produce a zero-knowledge survey-effort
+  proof proving >= K distinct cells under a public region without revealing exact locations.
+
+input_contract:
+  polygon_geojson: { type: object }
+  depth: { type: integer, default: 7 }
+  time_us: { type: integer }
+  k_min: { type: integer, default: 3, description: "Minimum distinct cells for ZK proof" }
+
+output_contract:
+  type: effort_proof_bundle
+  format: json
+
+steps:
+  - agent_id: burin_canonicalize
+    order: 1
+    skill: polygon_to_fingerprint
+    config:
+      polygon_geojson: "{{polygon_geojson}}"
+      depth: "{{depth}}"
+
+  - agent_id: burin_presence
+    order: 2
+    skill: commit_and_seal
+    config:
+      cells: "{{steps.1.artifact.cells}}"
+      depth: "{{depth}}"
+      time_us: "{{time_us}}"
+
+  - agent_id: burin_zk
+    order: 3
+    skill: survey_effort_proof
+    config:
+      coverage_root: "{{steps.2.artifact.coverage_root}}"
+      cells: "{{steps.1.artifact.cells}}"
+      k_min: "{{k_min}}"
+      public_region: "{{steps.1.artifact.fingerprint_hex}}"
+    output_schema:
+      type: object
+      properties:
+        burin_zk_survey_proof: { type: object }
+        k_proven: { type: integer }
+
+gate_profile:
+  default_autonomy: A1
+
+license_terms:
+  type: revenue-share
+  attribution_required: true
+  royalty_split:
+    - { did: did:placeholder:cameron-sajedi-burin, pct: 40, role: substrate-originator }
+    - { did: did:placeholder:dj-thomson-pathways, pct: 40, role: pathways-formalization }
+    - { did: did:placeholder:channel-partner, pct: 20, role: witness-channel }
+  substrate_license_ref:
+    substrate: burin
+    kernel_license: PolyForm-Noncommercial-1.0.0
+    commercial_kernel_contact: cameronsajedi@gmail.com
+    orchestration_scope: pathway-template-only
+
+tags:
+  - burin
+  - zk
+  - conservation
+  - citizen-science

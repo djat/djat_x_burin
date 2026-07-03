@@ -1,0 +1,20 @@
+pattern_id: Pattern.PresencePathway.PresenceRequired
+version: 1
+display_name: "Presence required on presence-bearing steps"
+description: >
+  Steps using burin_* agents MUST emit burin_seal or presence_waived on completion.
+
+invariants:
+  - name: seal_or_waiver
+    rule: >
+      For each step where agent_id matches /^burin_/, step artifact MUST contain
+      burin_seal OR presence_waived with launch_authority signature.
+  - name: no_silent_skip
+    rule: "burin_presence steps MUST NOT complete with empty artifact"
+
+violations:
+  - code: PRESENCE_ARTIFACT_MISSING
+    action: refuse_step
+  - code: FRAUD_DETECTED
+    action: halt_run
+    register: R5

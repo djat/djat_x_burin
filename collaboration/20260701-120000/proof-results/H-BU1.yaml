@@ -1,0 +1,3 @@
+hypothesis: H-BU1
+merge_policy: hash_linked_cross_reference_only
+status: confirmed

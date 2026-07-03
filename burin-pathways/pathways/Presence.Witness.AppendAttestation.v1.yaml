@@ -1,0 +1,44 @@
+domain: Presence
+subdomain: Witness
+action: AppendAttestation
+version: 1
+display_name: "Append witness attestation"
+description: >
+  Append an attestation to a witness log; detect equivocation and backdating fraud.
+
+input_contract:
+  witness_pubkey_hex: { type: string }
+  coverage_root: { type: string }
+  epoch: { type: integer }
+  prev_hash: { type: string }
+
+output_contract:
+  type: witness_attestation
+  format: json
+
+steps:
+  - agent_id: burin_presence
+    order: 1
+    skill: append_witness_attestation
+    config:
+      witness_pubkey_hex: "{{witness_pubkey_hex}}"
+      coverage_root: "{{coverage_root}}"
+      epoch: "{{epoch}}"
+      prev_hash: "{{prev_hash}}"
+
+  - agent_id: burin_presence
+    order: 2
+    skill: detect_fraud
+    config:
+      attestations: "{{steps.1.artifact.attestations}}"
+
+gate_profile:
+  default_autonomy: A2
+  R5:
+    enabled: true
+    halt_on_fraud: true
+
+tags:
+  - burin
+  - witness
+  - fraud

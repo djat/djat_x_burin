@@ -1,0 +1,44 @@
+capabilities:
+  - slug: prove-presence
+    display_name: Prove Presence
+    description: Emit offline-verifiable Burin seal binding what + where + when
+
+  - slug: bounded-disclosure
+    display_name: Bounded Disclosure
+    description: ZK proofs at DGGS zoom level without revealing exact cells
+
+  - slug: offline-verify
+    display_name: Offline Verify
+    description: Verify orchestration + presence attestations without network
+
+  - slug: detect-fraud
+    display_name: Detect Witness Fraud
+    description: Local-revoke fraud proofs for equivocation and backdating
+
+  - slug: degrade-to-paper
+    display_name: Degrade to Paper
+    description: Export 24-word spoken seal and printable trust card
+
+  - slug: issue-trust-key
+    display_name: Issue Trust Key
+    description: Mint provenance root with deep-link back to originating collaborative context
+
+  - slug: verify-trust-key-offline
+    display_name: Verify Trust Key Offline
+    description: Relying-party verification without vendor login or live platform
+
+  - slug: provenance-deep-link
+    display_name: Provenance Deep Link
+    description: Resolve Trust Key into PathwayRun graph and dual-plane artifacts
+
+  - slug: build-dimensional-trust-links
+    display_name: Build Dimensional Trust Links
+    description: Catalog registry-aligned deep-link slices from a Trust Key root
+
+  - slug: issue-dimensional-trust-link
+    display_name: Issue Dimensional Trust Link
+    description: Mint a scoped deep link with dimension parameters and optional one-time use
+
+  - slug: verify-dimensional-trust-link
+    display_name: Verify Dimensional Trust Link
+    description: Offline verify a Trust Key scoped to dimensional parameters

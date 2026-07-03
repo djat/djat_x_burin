@@ -1,0 +1,18 @@
+pattern_id: Pattern.BurinSubstrate.DualLicenseSplit
+version: 1
+display_name: "Dual license split — substrate vs orchestration"
+description: >
+  Every Burin-backed pathway template MUST carry substrate_license_ref pointing at
+  the Burin kernel license, separate from Pathways license_terms on the recipe.
+
+invariants:
+  - name: substrate_ref_present
+    rule: "license_terms.substrate_license_ref.substrate == 'burin'"
+  - name: orchestration_scope_explicit
+    rule: "license_terms.substrate_license_ref.orchestration_scope is set"
+  - name: commercial_contact_present
+    rule: "license_terms.substrate_license_ref.commercial_kernel_contact is set"
+
+attribution:
+  formalized_by: did:placeholder:dj-thomson-pathways
+  substrate_originator: did:placeholder:cameron-sajedi-burin

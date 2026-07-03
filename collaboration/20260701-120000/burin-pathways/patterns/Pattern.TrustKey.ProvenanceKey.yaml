@@ -1,0 +1,65 @@
+pattern_id: Pattern.TrustKey.ProvenanceKey
+version: 1
+display_name: "Trust Key — provenance root with deep-link back"
+description: >
+  A Trust Key is a Pathways technique (Pathways.TrustKey.Issue@v1): a cryptographic
+  provenance root for any multi-party context. It is NOT a vendor login, NOT a merged
+  super-hash, and NOT a platform-held archive. The relying party verifies offline and
+  follows deep links only if more detail is needed.
+
+authors:
+  - order: 1
+    did: did:placeholder:dj-thomson-pathways
+    name: DJ Thomson
+    role: co-author
+  - order: 2
+    did: did:placeholder:cameron-sajedi-burin
+    name: Cameron Sajedi
+    role: co-author
+
+unique_aspects:
+  - name: provenance_root_key
+    detail: One portable key material binds the entire context graph, not a single step output.
+  - name: deep_link_to_originating_context
+    detail: Always opens back into PathwayRuns, Burin seals, party attestations, and step artifacts.
+  - name: dual_plane_without_super_hash
+    detail: Orchestration (Pathways) and presence (Burin) planes cross-reference by hash only.
+  - name: entirely_private_distribution
+    detail: Key may travel peer-to-peer; no public broadcast of context contents required.
+  - name: multisig_capable_envelope
+    detail: Optional multi-signature envelope for institutional or community co-stewards.
+  - name: offline_verifiable_without_issuer_platform
+    detail: Verifier needs trust card / witness set + key file, not live API access.
+  - name: hash_linked_cross_reference_only
+    detail: merge_policy hash_linked_cross_reference_only — no silent artifact merge.
+  - name: portable_relying_party_verification
+    detail: Funder, auditor, or counterparty verifies on their own device.
+  - name: powerful_party_does_least
+    detail: Accept key, verify offline, follow deep link only if needed.
+  - name: dimensional_context_parameters
+    detail: >
+      Deep links accept registry-aligned query params (composite_domain, context_lens,
+      capability, agent_role, quarter, program_id, grant_id, habitat, unit_id, run_role,
+      run_id, location, time, temperature) to slice into any dimensional context without
+      re-minting the root key.
+  - name: one_time_dimensional_links
+    detail: >
+      The same root key can issue scoped links with one_time=1 and a nonce; verify burns
+      the slice after first use while the root archive remains intact.
+
+invariants:
+  - name: technique_identity
+    rule: "output.artifact_type == 'pathways_trust_key' implies technique == 'Pathways.TrustKey.Issue@v1'"
+  - name: dual_plane_present
+    rule: "trust_key.planes.orchestration AND trust_key.planes.presence are populated OR dual_bundle_id is set"
+  - name: deep_link_required
+    rule: "trust_key.deep_link starts with transect-trust://context/"
+  - name: attribution_required
+    rule: "license_terms.attribution_required == true AND authors[0].order == 1"
+
+templates:
+  issue: Pathways.TrustKey.Issue@v1
+  verify: Pathways.TrustKey.Verify@v1
+  build_dimensional_links: Pathways.TrustKey.BuildDimensionalLinks@v1
+  issue_dimensional_link: Pathways.TrustKey.IssueDimensionalLink@v1
+  verify_dimensional_link: Pathways.TrustKey.VerifyDimensionalLink@v1
