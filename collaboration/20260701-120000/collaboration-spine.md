@@ -1,4 +1,4 @@
-# Collaboration spine — Burin × Pathways
+# Collaboration spine - Burin × Pathways
 
 > *Accountability without agreement meets orchestration without a broker.*
 
@@ -20,11 +20,11 @@ Neither orchestration nor presence alone delivers **licensable multi-party workf
 
 ## What ships in this bundle
 
-- **`burin-pathways/`** — Presence + Conservation pathway templates, Trust Key technique, patterns, registry seeds, dual-license PACKAGE
-- **`proposed-spec-patches/`** — N5–N8, L6 normative proposals
-- **Presence Passport** — reference app for single-party effort proof (`assets/presence-passport/`)
-- **Transect Trust** — reference app + ecosystem seed for multi-party conservation quarter (`assets/transect-trust/`, live at https://transect-trust.fly.dev/)
-- **11 pre-registered hypotheses** — H-BU1..H-BU11 (H-BU11: Trust Key quarter close)
+- **`burin-pathways/`** - Presence + Conservation pathway templates, Trust Key technique, patterns, registry seeds, dual-license PACKAGE
+- **`proposed-spec-patches/`** - N5–N8, L6 normative proposals
+- **Presence Passport** - reference app for single-party effort proof (`assets/presence-passport/`)
+- **Transect Trust** - reference app + ecosystem seed for multi-party conservation quarter (`assets/transect-trust/`, live at http://209.46.125.56/)
+- **11 pre-registered hypotheses** - H-BU1..H-BU11 (H-BU11: Trust Key quarter close)
 
 ## Business thesis (short)
 

@@ -3,17 +3,17 @@ technique_id: Pathways.TrustKey.Issue@v1
 pattern: Pattern.TrustKey.ProvenanceKey
 version: 1
 authors:
-  - order: 1
+ - order: 1
     name: DJ Thomson
     did: did:placeholder:dj-thomson-pathways
     role: co-author
-  - order: 2
+ - order: 2
     name: Cameron Sajedi
     did: did:placeholder:cameron-sajedi-burin
     role: co-author
 ---
 
-# Trust Key — Pathways technique
+# Trust Key - Pathways technique
 
 ## Concept
 
@@ -27,8 +27,8 @@ A **Trust Key** is a generic Pathways technique for issuing a cryptographic **pr
 
 ## Authors
 
-1. **DJ Thomson** — co-author (`did:placeholder:dj-thomson-pathways`)
-2. **Cameron Sajedi** — co-author (`did:placeholder:cameron-sajedi-burin`)
+1. **DJ Thomson** - co-author (`did:placeholder:dj-thomson-pathways`)
+2. **Cameron Sajedi** - co-author (`did:placeholder:cameron-sajedi-burin`)
 
 Royalty split on Trust Key templates: 55% technique-originator (DJ) / 45% co-author (Cameron) on standalone templates; domain compositions (e.g. quarterly close) may allocate additional shares to program operators.
 
@@ -54,7 +54,7 @@ The root `deep_link` and every scoped `dimensional_link` accept registry-aligned
 
 `composite_domain` · `context_lens` · `capability` · `agent_role` · `quarter` · `program_id` · `grant_id` · `habitat` · `unit_id` · `run_role` · `run_id` · `location` · `time` · `temperature`
 
-Pass `one_time=1` and a `nonce` on any scoped link to mint a **one-time key** from the same root — verify burns that slice after first use.
+Pass `one_time=1` and a `nonce` on any scoped link to mint a **one-time key** from the same root - verify burns that slice after first use.
 
 ### Example dimensional links (Transect Trust quarter)
 
@@ -69,13 +69,13 @@ Pass `one_time=1` and a `nonce` on any scoped link to mint a **one-time key** fr
 
 ## Issue pipeline (steps)
 
-1. `collect_provenance_context` — index run graph + aggregated artifacts
-2. `assemble_dual_attestation_bundle` — orchestration + presence planes
-3. `mint_trust_key` — provenance root + key material + deep link URI
-4. `build_dimensional_links` — catalog of registry-aligned dimensional deep links
-5. `build_deeplink_manifest` — per-run deep links back into context
-6. `apply_multisig_envelope` — optional multi-signature wrapper
-7. `degrade_to_paper` — optional 24-word spoken seal on presence anchor
+1. `collect_provenance_context` - index run graph + aggregated artifacts
+2. `assemble_dual_attestation_bundle` - orchestration + presence planes
+3. `mint_trust_key` - provenance root + key material + deep link URI
+4. `build_dimensional_links` - catalog of registry-aligned dimensional deep links
+5. `build_deeplink_manifest` - per-run deep links back into context
+6. `apply_multisig_envelope` - optional multi-signature wrapper
+7. `degrade_to_paper` - optional 24-word spoken seal on presence anchor
 
 ## Standalone Pathway templates
 
@@ -90,15 +90,15 @@ Quarter close orchestrates sibling PathwayRuns: Issue → VerifyDimensionalLink 
 ## Verify pipeline (steps)
 
 1. `load_trust_key`
-2. `verify_trust_key_offline` — against trust card witness set
-3. `resolve_deeplink_context` — hydrate linked runs when available
+2. `verify_trust_key_offline` - against trust card witness set
+3. `resolve_deeplink_context` - hydrate linked runs when available
 
 ## Composition in Transect Trust
 
 `Conservation.Program.QuarterlyClose@v1` embeds the Issue pipeline after run-graph validation and royalty attribution, producing a `pathways_trust_key` artifact on the quarterly close record.
 
-**Reference application:** [Transect Trust](../../assets/transect-trust/) — live at [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/). Playbook: [`TRANSECT_TRUST_PLAYBOOK.md`](../TRANSECT_TRUST_PLAYBOOK.md).
+**Reference application:** [Transect Trust](../../assets/transect-trust/) - live at [http://209.46.125.56/](http://209.46.125.56/). Playbook: [`TRANSECT_TRUST_PLAYBOOK.md`](../TRANSECT_TRUST_PLAYBOOK.md).
 
 ## Agent
 
-`pathways_trustkey` — implemented in `backend/app/services/trustkey_agents.py`
+`pathways_trustkey` - implemented in `backend/app/services/trustkey_agents.py`

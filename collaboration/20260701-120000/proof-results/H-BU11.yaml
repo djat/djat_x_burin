@@ -11,4 +11,4 @@ pathways:
 confirm: |
   Quarter close launches four sibling PathwayRuns linked in the run graph.
   Trust Key artifact includes dimensional_links with location, time, temperature params.
-  Live deployment verifies at https://transect-trust.fly.dev/api/health
+  Live deployment verifies at http://209.46.125.56/api/health

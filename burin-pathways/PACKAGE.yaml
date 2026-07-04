@@ -1,4 +1,4 @@
-# Burin-as-Pathways bundle — packaging manifest
+# Burin-as-Pathways bundle  - packaging manifest
 
 bundle_id: burin-pathways
 version: "1.1.0-transect-trust"
@@ -20,7 +20,7 @@ pathways_index: pathways-index.yaml
 
 attribution:
   source_substrate:
-    label: "Burin — spatiotemporal trust primitive"
+    label: "Burin  - spatiotemporal trust primitive"
     originator: "Cameron Sajedi"
     originator_contact: cameronsajedi@gmail.com
     originator_did: did:placeholder:cameron-sajedi-burin
@@ -101,4 +101,4 @@ reference_applications:
   presence_passport: ../presence-passport/
   transect_trust:
     source: ../transect-trust/
-    live_url: https://transect-trust.fly.dev/
+    live_url: http://209.46.125.56/

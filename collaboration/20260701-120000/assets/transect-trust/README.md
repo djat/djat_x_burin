@@ -1,14 +1,14 @@
-# Transect Trust — reference application (bundle copy)
+# Transect Trust - reference application (bundle copy)
 
-**Conservation grant effort hub** — multi-party web application on Burin + Pathways for NE Estuary-style grant reporting, cross-habitat collaboration, and **Trust Key** provenance roots.
+**Conservation grant effort hub** - multi-party web application on Burin + Pathways for NE Estuary-style grant reporting, cross-habitat collaboration, and **Trust Key** provenance roots.
 
 | | |
 |---|---|
-| **Live demo** | [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/) |
+| **Live demo** | [http://209.46.125.56/](http://209.46.125.56/) |
 | **Repository** | [https://github.com/djat/djat_x_burin](https://github.com/djat/djat_x_burin) |
 | **Playbook** | [`../../burin-pathways/TRANSECT_TRUST_PLAYBOOK.md`](../../burin-pathways/TRANSECT_TRUST_PLAYBOOK.md) |
 | **Trust Key technique** | [`../../burin-pathways/techniques/TRUST_KEY_TECHNIQUE.v1.md`](../../burin-pathways/techniques/TRUST_KEY_TECHNIQUE.v1.md) |
-| **Sibling app** | [Presence Passport](../presence-passport/README.md) — single-actor field proof |
+| **Sibling app** | [Presence Passport](../presence-passport/README.md) - single-actor field proof |
 | **Full stack (repo root)** | `transect-trust/` + `backend/` |
 
 This directory mirrors the Transect Trust UI source from the repo root (excluding `node_modules` and `dist`). Run against the shared backend at repo root.
@@ -20,7 +20,7 @@ cd backend && uv run uvicorn app.main:app --reload --port 8002
 cd transect-trust && npm install && npm run dev   # http://127.0.0.1:5175
 ```
 
-Or open the **live deployment**: https://transect-trust.fly.dev/
+Or open the **live deployment**: http://209.46.125.56/
 
 ## Bundle documentation
 

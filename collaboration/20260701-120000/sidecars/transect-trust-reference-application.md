@@ -1,8 +1,8 @@
 ---
 type: sidecar
-title: "Transect Trust — reference application and ecosystem seed"
+title: "Transect Trust - reference application and ecosystem seed"
 filed: 2026-07-03
-live_url: https://transect-trust.fly.dev/
+live_url: http://209.46.125.56/
 ---
 
 # Transect Trust reference application
@@ -13,16 +13,16 @@ Transect Trust is the **second reference application** in the Burin × Pathways 
 
 - **Conservation.*** domain templates (program register → grant award → field effort → coordinator review → funder verify → quarter close)
 - **Pathways.TrustKey.*** as first-class PathwayRuns (Issue, Verify, BuildDimensionalLinks, IssueDimensionalLink, VerifyDimensionalLink)
-- **Dual attestation** in a full quarter workflow — not a single demo step
+- **Dual attestation** in a full quarter workflow - not a single demo step
 - **Sibling PathwayRuns** for primary grant proof, opt-in collaborations, and water panel fulfillment
-- **Privacy floor** — no raw GPS, no identifiable org/personal data, no species-to-location tie across project boundaries
+- **Privacy floor** - no raw GPS, no identifiable org/personal data, no species-to-location tie across project boundaries
 
 ## Live deployment
 
 | | |
 |---|---|
-| **URL** | https://transect-trust.fly.dev/ |
-| **Host** | Fly.io (single container: FastAPI + React static UI + SQLite volume) |
+| **URL** | http://209.46.125.56/ |
+| **Host** | VPS (FastAPI/Uvicorn + React static UI) |
 | **Repo paths** | `transect-trust/` (UI), `backend/` (API), `burin-pathways/` (templates) |
 
 ## Demo program

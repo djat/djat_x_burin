@@ -1,8 +1,8 @@
-# Companion bundle index — Burin × Pathways
+# Companion bundle index - Burin × Pathways
 
 **Channel:** `djat-burin-20260701`  
 **Prepared for:** Cameron Sajedi and the Burin project  
-**Status:** SEALED — open invitation (updated 2026-07-03 with Transect Trust documentation + bundle assets)
+**Status:** SEALED - open invitation (updated 2026-07-03 with Transect Trust documentation + bundle assets)
 
 ## Read order
 
@@ -18,7 +18,7 @@
 | 8 | [sidecars/trust-key-provenance-root-thesis.md](sidecars/trust-key-provenance-root-thesis.md) | Trust Key + dimensional links |
 | 9 | [sidecars/transect-trust-reference-application.md](sidecars/transect-trust-reference-application.md) | Transect Trust context |
 | 10 | [assets/presence-passport/README.md](assets/presence-passport/README.md) | Reference app (Presence) |
-| 11 | [assets/transect-trust/README.md](assets/transect-trust/README.md) | Reference app (Conservation) — UI source + live link |
+| 11 | [assets/transect-trust/README.md](assets/transect-trust/README.md) | Reference app (Conservation) - UI source + live link |
 
 ## Verify
 
@@ -28,15 +28,15 @@ python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260701-
 
 ## Flagship proofs
 
-- **H-BU1** — Dual-attestation sandwich (Aqua + Burin, no merged super-hash)
-- **H-BU5** — Field run offline verify (Presence Passport)
-- **H-BU11** — Trust Key quarter close with dimensional PathwayRuns (Transect Trust)
+- **H-BU1** - Dual-attestation sandwich (Aqua + Burin, no merged super-hash)
+- **H-BU5** - Field run offline verify (Presence Passport)
+- **H-BU11** - Trust Key quarter close with dimensional PathwayRuns (Transect Trust)
 
 ## Live reference applications
 
 | App | URL |
 |-----|-----|
-| Transect Trust | https://transect-trust.fly.dev/ |
+| Transect Trust | http://209.46.125.56/ |
 | Presence Passport | local / bundle assets |
 
 ## Honest boundaries

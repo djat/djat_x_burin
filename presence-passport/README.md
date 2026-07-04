@@ -1,6 +1,6 @@
 # Presence Passport
 
-**Prove you were there** — a guided app for field workers, inspectors, and citizen scientists.
+**Prove you were there** - a guided app for field workers, inspectors, and citizen scientists.
 
 No blockchain. No jargon-first UI. About 30 seconds start to finish.
 
@@ -16,12 +16,12 @@ No blockchain. No jargon-first UI. About 30 seconds start to finish.
 **You need two terminals:**
 
 ```bash
-# Terminal 1 — API (required)
+# Terminal 1 - API (required)
 cd backend
 uv sync
 uv run uvicorn app.main:app --reload --port 8000
 
-# Terminal 2 — UI
+# Terminal 2 - UI
 cd presence-passport
 npm install
 npm run dev
@@ -29,7 +29,7 @@ npm run dev
 
 Open **http://localhost:5173** and click **Create my presence passport**.
 
-If the server isn't running, the app shows a clear error with setup instructions — it won't silently fail.
+If the server isn't running, the app shows a clear error with setup instructions - it won't silently fail.
 
 ## Troubleshooting
 
@@ -47,4 +47,4 @@ If the server isn't running, the app shows a clear error with setup instructions
 
 ## Related reference app
 
-For **multi-party conservation grant reporting** with Trust Key provenance, see **[Transect Trust](../transect-trust/README.md)** — live at [transect-trust.fly.dev](https://transect-trust.fly.dev/).
+For **multi-party conservation grant reporting** with Trust Key provenance, see **[Transect Trust](../transect-trust/README.md)** - live at [209.46.125.56](http://209.46.125.56/).

@@ -13,15 +13,15 @@ filed: 2026-07-01
 
 ---
 
-## §1 — What this bundle is
+## §1 - What this bundle is
 
-This bundle formalizes **Burin** — *accountability without agreement* — as a Pathways **substrate primitive**, not an application. Burin supplies consensus-free, offline-verifiable **presence attestation** (where + when + what commitment); Pathways supplies **orchestration attestation** (what workflow ran, under what policy, with what lineage).
+This bundle formalizes **Burin** - *accountability without agreement* - as a Pathways **substrate primitive**, not an application. Burin supplies consensus-free, offline-verifiable **presence attestation** (where + when + what commitment); Pathways supplies **orchestration attestation** (what workflow ran, under what policy, with what lineage).
 
-Burin is source-available under **PolyForm Noncommercial 1.0.0**. Commercial kernel use requires a separate license from Cameron Sajedi (cameronsajedi@gmail.com). Pathways `license_terms` on templates in this bundle govern **orchestration recipes** only — see §4.
+Burin is source-available under **PolyForm Noncommercial 1.0.0**. Commercial kernel use requires a separate license from Cameron Sajedi (cameronsajedi@gmail.com). Pathways `license_terms` on templates in this bundle govern **orchestration recipes** only - see §4.
 
 The companion Burin project docs live at [`../Burin/`](../Burin/): [`SCOPE.md`](../Burin/SCOPE.md), [`KERNEL.md`](../Burin/KERNEL.md), [`ATTESTATION_MODEL.md`](../Burin/ATTESTATION_MODEL.md).
 
-## §2 — The invariant
+## §2 - The invariant
 
 > **Every presence-bearing step MUST emit a verifiable `burin_seal` artifact on `_step_artifacts[order]`, OR an explicit `presence_waived` attestation signed by the launch authority.**
 
@@ -29,7 +29,7 @@ Steps that canonicalize geometry, commit coverage, seal, witness, or export pape
 
 Violations are refused at launch when `Pattern.PresencePathway.PresenceRequired` is registered.
 
-## §3 — Template catalog
+## §3 - Template catalog
 
 | Template | Purpose |
 |----------|---------|
@@ -41,7 +41,7 @@ Violations are refused at launch when `Pattern.PresencePathway.PresenceRequired`
 | [`Presence.Bundle.DualAttestation@v1`](pathways/Presence.Bundle.DualAttestation@v1.yaml) | Aqua run + Burin seal → collaboration bundle |
 | [`Burin.Conformance.Test@v1`](pathways/Burin.Conformance.Test@v1.yaml) | BT-1..BT-7 conformance cases |
 
-## §4 — Dual licensing commerce model
+## §4 - Dual licensing commerce model
 
 Pathways enables a **third way** atop Burin's PolyForm NC kernel:
 
@@ -56,9 +56,9 @@ license_terms:
   type: revenue-share
   attribution_required: true
   royalty_split:
-    - { did: did:placeholder:cameron-sajedi-burin, pct: 40, role: substrate-originator }
-    - { did: did:placeholder:dj-thomson-pathways, pct: 40, role: pathways-formalization }
-    - { did: did:placeholder:channel-partner, pct: 20, role: witness-channel }
+   - { did: did:placeholder:cameron-sajedi-burin, pct: 40, role: substrate-originator }
+   - { did: did:placeholder:dj-thomson-pathways, pct: 40, role: pathways-formalization }
+   - { did: did:placeholder:channel-partner, pct: 20, role: witness-channel }
   substrate_license_ref:
     substrate: burin
     kernel_license: PolyForm-Noncommercial-1.0.0
@@ -68,25 +68,25 @@ license_terms:
 
 Noncommercial research, education, and evaluation may run **both** kernel and templates freely.
 
-## §5 — Adoption
+## §5 - Adoption
 
 1. Register this bundle (`burin-pathways/PACKAGE.yaml`) in your Pathways build catalog.
 2. Seed registry entries from [`registry/`](registry/).
 3. Install Burin as path dependency: `burin @ file://../Burin`
 4. Register agents: `burin_presence`, `burin_canonicalize`, `burin_zk`, `burin_export`
-5. Run [`Burin.Conformance.Test@v1`](pathways/Burin.Conformance.Test.v1.yaml) — results feed build manifest
+5. Run [`Burin.Conformance.Test@v1`](pathways/Burin.Conformance.Test.v1.yaml) - results feed build manifest
 6. Seed a **trust card** (witness key-set + DGGS params) as cold-start artifact parallel to practice profile R1
 
-## §6 — Witness business model
+## §6 - Witness business model
 
 Burin's adoption thesis ([`SCOPE.md`](../Burin/SCOPE.md) §0): the satellite operator is a **witness**, holding no authority. Pathways encodes witnesses as `burin_presence` agent steps with `role: presence_witness` on `PathwayRunSource` edges.
 
 Revenue paths:
-- **Witness relay fees** — per seal broadcast (70-byte GSMC tier)
-- **Pathway royalty_split** — fork/use of presence workflow templates
-- **Kernel commercial license** — integrated products using Burin in revenue-generating activity
+- **Witness relay fees** - per seal broadcast (70-byte GSMC tier)
+- **Pathway royalty_split** - fork/use of presence workflow templates
+- **Kernel commercial license** - integrated products using Burin in revenue-generating activity
 
-## §7 — Artifact types
+## §7 - Artifact types
 
 | Artifact | Schema ref | Plane |
 |----------|------------|-------|
@@ -97,7 +97,7 @@ Revenue paths:
 | `spoken_seal_24w` | derivative export | Degrade-to-paper |
 | `aqua_tree_id` | existing Pathways | Orchestration |
 
-## §8 — Conformance
+## §8 - Conformance
 
 Level **S** minimum: hash-bound bundles + Burin offline verify.
 
@@ -105,15 +105,16 @@ Level **F** target: Aqua-attested runs + dual-substrate verify bundle (proposed 
 
 See [`test/HYPOTHESES.md`](test/HYPOTHESES.md) in the collaboration bundle for pre-registered proof experiments.
 
-## §9 — Transect Trust (Conservation domain extension)
+## §9 - Transect Trust (Conservation domain extension)
 
 **[Transect Trust](../transect-trust/)** is the second reference application: multi-party conservation grant reporting, cross-habitat collaboration, private in-network water requests, and offline funder verification with **Trust Key** provenance roots.
 
 | | |
 |---|---|
-| **Live demo** | [https://transect-trust.fly.dev/](https://transect-trust.fly.dev/) |
+| **Live demo** | [http://209.46.125.56/](http://209.46.125.56/) |
 | **Playbook** | [`TRANSECT_TRUST_PLAYBOOK.md`](TRANSECT_TRUST_PLAYBOOK.md) |
 | **Trust Key technique** | [`techniques/TRUST_KEY_TECHNIQUE.v1.md`](techniques/TRUST_KEY_TECHNIQUE.v1.md) |
+| **Trust Key app** | [`../trust-key/`](../trust-key/) |
 | **UI source** | [`../transect-trust/`](../transect-trust/) |
 | **API** | `backend/app/routers/transect_trust.py` |
 
