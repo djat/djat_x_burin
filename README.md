@@ -3,7 +3,7 @@
 Open collaboration workspace encoding **Burin** (consensus-free spatiotemporal trust) as a foundational **Pathways** substrate primitive, with three reference applications.
 
 **Live demo:** [http://209.46.125.56/](http://209.46.125.56/)  
-**Repository:** [https://github.com/djat/djat_x_burin](https://github.com/djat/djat_x_burin) (private)
+**Repository:** [https://github.com/djat/djat_x_burin](https://github.com/djat/djat_x_burin)
 
 ## Repository layout
 
